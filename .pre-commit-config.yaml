@@ -35,5 +35,6 @@ repos:
     exclude: &exclude_files >
       (?x)^(
           docs/.*|
+          tests/.*|
       )$
     entry: pylint

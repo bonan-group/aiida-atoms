@@ -2,13 +2,14 @@
 Test the tracker
 """
 
-import pytest
+from ase.build import bulk
 import numpy as np
+import pytest
 
-from aiida_atoms.tracker import AtomsTracker
 from aiida import orm
 
-from ase.build import bulk
+from aiida_atoms.tracker import AtomsTracker
+
 
 def check_atoms_equality(a1, a2, tol=1e-10):
     if isinstance(a1, AtomsTracker):
@@ -20,6 +21,7 @@ def check_atoms_equality(a1, a2, tol=1e-10):
     assert abs(a1.positions - a2.positions).max() < tol
     assert abs(a1.numbers == a2.numbers).all()
 
+
 def check_atoms_inequality(a1, a2, tol=1e-10):
     if isinstance(a1, AtomsTracker):
         a1 = a1.atoms
@@ -27,31 +29,34 @@ def check_atoms_inequality(a1, a2, tol=1e-10):
         a2 = a2.atoms
 
     assert any(
-        [(abs(a1.cell - a2.cell).min() > tol),
-         (abs(a1.positions - a2.positions).min() > tol),
-         abs(a1.numbers != a2.numbers).any(),
-         ]
-         )
+        [
+            (abs(a1.cell - a2.cell).min() > tol),
+            (abs(a1.positions - a2.positions).min() > tol),
+            abs(a1.numbers != a2.numbers).any(),
+        ]
+    )
+
 
 mgo = bulk("MgO", "rocksalt", 4.0)
 
+
 @pytest.mark.parametrize(
-        ['inplace', "atoms", "method_name", "args", "kwargs"],
-        [
-            [True, mgo, "translate", [(0.1, 0.1, 0.1)], {}],
-            [True, mgo, "center", [], {}],
-            [True, mgo, "wrap", [], {}],
-            [True, mgo, "rattle", [0.1], {}],
-            [True, mgo, "rattle", [], {"stdev": 0.1}],
-            [True, mgo, "set_cell", [np.diag([3,3,3])], {}],
-            [True, mgo, "set_cell", [np.diag([3,3,3])], {"scale_atoms":True}],
-            [True, mgo, "set_atomic_numbers", [[1,1]], {}],
-            [True, mgo, "set_masses", [[1,1]], {}],
-            [True, mgo, "set_distance", [0, 1], {'distance': 1.0}],
-            [False, mgo, "__mul__", [(2,2,2)], {}],
-            [False, mgo, "repeat", [(2,2,2)], {}],
-            [False, mgo, "__getitem__", [[0]], {}],
-        ]
+    ["inplace", "atoms", "method_name", "args", "kwargs"],
+    [
+        [True, mgo, "translate", [(0.1, 0.1, 0.1)], {}],
+        [True, mgo, "center", [], {}],
+        [True, mgo, "wrap", [], {}],
+        [True, mgo, "rattle", [0.1], {}],
+        [True, mgo, "rattle", [], {"stdev": 0.1}],
+        [True, mgo, "set_cell", [np.diag([3, 3, 3])], {}],
+        [True, mgo, "set_cell", [np.diag([3, 3, 3])], {"scale_atoms": True}],
+        [True, mgo, "set_atomic_numbers", [[1, 1]], {}],
+        [True, mgo, "set_masses", [[1, 1]], {}],
+        [True, mgo, "set_distance", [0, 1], {"distance": 1.0}],
+        [False, mgo, "__mul__", [(2, 2, 2)], {}],
+        [False, mgo, "repeat", [(2, 2, 2)], {}],
+        [False, mgo, "__getitem__", [[0]], {}],
+    ],
 )
 def test_track_roundtrip(inplace, atoms, method_name, args, kwargs):
     """Perform tests for round trip equality"""
@@ -72,7 +77,6 @@ def test_track_roundtrip(inplace, atoms, method_name, args, kwargs):
     check_atoms_equality(atoms, init_state)
 
 
-
 def test_tracker_construction():
     """Test `AtomsTracker` type"""
 
@@ -85,7 +89,7 @@ def test_tracker_construction():
     assert tracker1.node.is_stored is False
     assert tracker2.node.is_stored is False
 
-    tracker1.repeat((2,2,2))
+    tracker1.repeat((2, 2, 2))
     assert tracker1.node.is_stored
 
 
@@ -95,8 +99,8 @@ def test_provenance_tracking(clear_database):
     # Perform a mixture of inplace and out-of-place operations with branching
     tracker = AtomsTracker(mgo)
     node_init = tracker.node
-    tracker_larger_supercell = tracker.repeat((3,3,3))
-    tracker = tracker.repeat((2,2,2))
+    _ = tracker.repeat((3, 3, 3))
+    tracker = tracker.repeat((2, 2, 2))
     node_1 = tracker.node
     tracker.pop(0)
     node_2 = tracker.node
@@ -112,4 +116,3 @@ def test_provenance_tracking(clear_database):
     assert len(node_1.get_incoming().one().node.get_incoming().all()) == 2
     assert len(node_2.get_incoming().one().node.get_incoming().all()) == 2
     assert len(node_3.get_incoming().one().node.get_incoming().all()) == 2
-
