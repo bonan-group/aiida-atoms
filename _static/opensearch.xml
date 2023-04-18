@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>aiida-atoms</ShortName>
+  <Description>Search aiida-atoms v0.1.0a0</Description>
+  <InputEncoding>utf-8</InputEncoding>
+  <Url type="text/html" method="get"
+       template="https://zhubonan.github.io/aiida-atoms/search.html?q={searchTerms}"/>
+  <LongName>aiida-atoms v0.1.0a0</LongName>
+  
+</OpenSearchDescription>

@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aiida_atoms package &#8212; aiida-atoms v0.1.0a0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/contentui.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'apidoc/aiida_atoms';</script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within aiida-atoms v0.1.0a0"
+          href="../_static/opensearch.xml"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Developer guide" href="../developer_guide/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/AiiDA_transparent_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/AiiDA_transparent_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/zhubonan/castepxbin" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/castepxbin/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/castepxbin" class="icon-link-image" alt="PyPI"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    The aiida-atoms plugin for AiiDA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user_guide/index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/get_started.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/tutorial.html">Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/index.html">Developer guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">API documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/zhubonan/castepxbin" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/apidoc/aiida_atoms.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>aiida_atoms package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-aiida_atoms.tracker">aiida_atoms.tracker module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-aiida_atoms">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="aiida-atoms-package">
+<h1>aiida_atoms package<a class="headerlink" href="#aiida-atoms-package" title="Permalink to this heading">#</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="module-aiida_atoms.tracker">
+<span id="aiida-atoms-tracker-module"></span><h2>aiida_atoms.tracker module<a class="headerlink" href="#module-aiida_atoms.tracker" title="Permalink to this heading">#</a></h2>
+<p>Track changes of an atom</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">AtomsTracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Atoms</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/reference/apidoc/aiida.orm.nodes.data.html#aiida.orm.nodes.data.structure.StructureData" title="(in AiiDA v2.3)"><span class="pre">StructureData</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Atoms</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#AtomsTracker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Tracking changes of an atom</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__delitem__">
+<span class="sig-name descname"><span class="pre">__delitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__delitem__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__dict__">
+<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'aiida_atoms.tracker',</span> <span class="pre">'__doc__':</span> <span class="pre">'Tracking</span> <span class="pre">changes</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">atom',</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">AtomsTracker.__init__&gt;,</span> <span class="pre">'sort':</span> <span class="pre">&lt;function</span> <span class="pre">sort&gt;,</span> <span class="pre">'make_supercell':</span> <span class="pre">&lt;function</span> <span class="pre">make_supercell&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'AtomsTracker'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__weakref__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__weakref__'</span> <span class="pre">of</span> <span class="pre">'AtomsTracker'</span> <span class="pre">objects&gt;,</span> <span class="pre">'set_cell':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_cell&gt;,</span> <span class="pre">'set_positions':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_positions&gt;,</span> <span class="pre">'set_pbc':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_pbc&gt;,</span> <span class="pre">'set_atomic_numbers':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_atomic_numbers&gt;,</span> <span class="pre">'set_chemical_symbols':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_chemical_symbols&gt;,</span> <span class="pre">'set_masses':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_masses&gt;,</span> <span class="pre">'pop':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.pop&gt;,</span> <span class="pre">'translate':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.translate&gt;,</span> <span class="pre">'center':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.center&gt;,</span> <span class="pre">'set_center_of_mass':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_center_of_mass&gt;,</span> <span class="pre">'rotate':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.rotate&gt;,</span> <span class="pre">'euler_rotate':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.euler_rotate&gt;,</span> <span class="pre">'set_dihedral':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_dihedral&gt;,</span> <span class="pre">'rotate_dihedral':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.rotate_dihedral&gt;,</span> <span class="pre">'set_angle':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_angle&gt;,</span> <span class="pre">'rattle':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.rattle&gt;,</span> <span class="pre">'set_distance':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_distance&gt;,</span> <span class="pre">'set_scaled_positions':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.set_scaled_positions&gt;,</span> <span class="pre">'wrap':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.wrap&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.__delitem__&gt;,</span> <span class="pre">'__imul__':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.__imul__&gt;,</span> <span class="pre">'repeat':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.repeat&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.__getitem__&gt;,</span> <span class="pre">'__mul__':</span> <span class="pre">&lt;function</span> <span class="pre">Atoms.__mul__&gt;,</span> <span class="pre">'__annotations__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__dict__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__getitem__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a subset of the atoms.</p>
+<p>i – scalar integer, list of integers, or slice object
+describing which atoms to return.</p>
+<p>If i is a scalar, return an Atom object. If i is a list or a
+slice, return an Atoms object with the same cell, pbc, and
+other associated info as the original Atoms object. The
+indices of the constraints will be shuffled so that they match
+the indexing in the subset returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__imul__">
+<span class="sig-name descname"><span class="pre">__imul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__imul__" title="Permalink to this definition">#</a></dt>
+<dd><p>In-place repeat of atoms.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Atoms</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/reference/apidoc/aiida.orm.nodes.data.html#aiida.orm.nodes.data.structure.StructureData" title="(in AiiDA v2.3)"><span class="pre">StructureData</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Atoms</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#AtomsTracker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Instantiate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__module__">
+<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'aiida_atoms.tracker'</span></em><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__module__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__mul__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__weakref__">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__weakref__" title="Permalink to this definition">#</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.center">
+<span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vacuum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">about</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.center" title="Permalink to this definition">#</a></dt>
+<dd><p>Center atoms in unit cell.</p>
+<p>Centers the atoms in the unit cell, so there is the same
+amount of vacuum on all sides.</p>
+<dl class="simple">
+<dt>vacuum: float (default: None)</dt><dd><p>If specified adjust the amount of vacuum when centering.
+If vacuum=10.0 there will thus be 10 Angstrom of vacuum
+on each side.</p>
+</dd>
+<dt>axis: int or sequence of ints</dt><dd><p>Axis or axes to act on.  Default: Act on all axes.</p>
+</dd>
+<dt>about: float or array (default: None)</dt><dd><p>If specified, center the atoms about &lt;about&gt;.
+I.e., about=(0., 0., 0.) (or just “about=0.”, interpreted
+identically), to center about the origin.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.euler_rotate">
+<span class="sig-name descname"><span class="pre">euler_rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.euler_rotate" title="Permalink to this definition">#</a></dt>
+<dd><p>Rotate atoms via Euler angles (in degrees).</p>
+<p>See e.g <a class="reference external" href="http://mathworld.wolfram.com/EulerAngles.html">http://mathworld.wolfram.com/EulerAngles.html</a> for explanation.</p>
+<p>Parameters:</p>
+<dl class="simple">
+<dt>center :</dt><dd><p>The point to rotate about. A sequence of length 3 with the
+coordinates, or ‘COM’ to select the center of mass, ‘COP’ to
+select center of positions or ‘COU’ to select center of cell.</p>
+</dd>
+<dt>phi :</dt><dd><p>The 1st rotation angle around the z axis.</p>
+</dd>
+<dt>theta :</dt><dd><p>Rotation around the x axis.</p>
+</dd>
+<dt>psi :</dt><dd><p>2nd rotation around the z axis.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.make_supercell">
+<span class="sig-name descname"><span class="pre">make_supercell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.make_supercell" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a supercell by applying a general transformation (<em>P</em>) to
+the input configuration (<em>prim</em>).</p>
+<p>The transformation is described by a 3x3 integer matrix
+<cite>mathbf{P}</cite>. Specifically, the new cell metric
+<cite>mathbf{h}</cite> is given in terms of the metric of the input
+configuration <cite>mathbf{h}_p</cite> by <cite>mathbf{P h}_p =
+mathbf{h}</cite>.</p>
+<p>Parameters:</p>
+<dl class="simple">
+<dt>prim: ASE Atoms object</dt><dd><p>Input configuration.</p>
+</dd>
+<dt>P: 3x3 integer matrix</dt><dd><p>Transformation matrix <cite>mathbf{P}</cite>.</p>
+</dd>
+<dt>wrap: bool</dt><dd><p>wrap in the end</p>
+</dd>
+<dt>tol: float</dt><dd><p>tolerance for wrapping</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.pop" title="Permalink to this definition">#</a></dt>
+<dd><p>Remove and return atom at index <em>i</em> (default last).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.rattle">
+<span class="sig-name descname"><span class="pre">rattle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stdev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.rattle" title="Permalink to this definition">#</a></dt>
+<dd><p>Randomly displace atoms.</p>
+<p>This method adds random displacements to the atomic positions,
+taking a possible constraint into account.  The random numbers are
+drawn from a normal distribution of standard deviation stdev.</p>
+<p>For a parallel calculation, it is important to use the same
+seed on all processors!</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.repeat">
+<span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.repeat" title="Permalink to this definition">#</a></dt>
+<dd><p>Create new repeated atoms object.</p>
+<p>The <em>rep</em> argument should be a sequence of three positive
+integers like <em>(2,3,1)</em> or a single integer (<em>r</em>) equivalent
+to <em>(r,r,r)</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_cell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.rotate" title="Permalink to this definition">#</a></dt>
+<dd><p>Rotate atoms based on a vector and an angle, or two vectors.</p>
+<p>Parameters:</p>
+<dl class="simple">
+<dt>a = None:</dt><dd><p>Angle that the atoms is rotated around the vector ‘v’. ‘a’
+can also be a vector and then ‘a’ is rotated
+into ‘v’.</p>
+</dd>
+<dt>v:</dt><dd><p>Vector to rotate the atoms around. Vectors can be given as
+strings: ‘x’, ‘-x’, ‘y’, … .</p>
+</dd>
+<dt>center = (0, 0, 0):</dt><dd><p>The center is kept fixed under the rotation. Use ‘COM’ to fix
+the center of mass, ‘COP’ to fix the center of positions or
+‘COU’ to fix the center of cell.</p>
+</dd>
+<dt>rotate_cell = False:</dt><dd><p>If true the cell is also rotated.</p>
+</dd>
+</dl>
+<p>Examples:</p>
+<p>Rotate 90 degrees around the z-axis, so that the x-axis is
+rotated into the y-axis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">Atoms</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;-z&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">rotate</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.rotate_dihedral">
+<span class="sig-name descname"><span class="pre">rotate_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.rotate_dihedral" title="Permalink to this definition">#</a></dt>
+<dd><p>Rotate dihedral angle.</p>
+<p>Same usage as in <code class="xref py py-meth docutils literal notranslate"><span class="pre">ase.Atoms.set_dihedral()</span></code>: Rotate a group by a
+predefined dihedral angle, starting from its current configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_angle">
+<span class="sig-name descname"><span class="pre">set_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_angle" title="Permalink to this definition">#</a></dt>
+<dd><p>Set angle (in degrees) formed by three atoms.</p>
+<p>Sets the angle between vectors <em>a2</em>-&gt;*a1* and <em>a2</em>-&gt;*a3*.</p>
+<p>If <em>add</em> is <cite>True</cite>, the angle will be changed by the value given.</p>
+<p>Same usage as in <code class="xref py py-meth docutils literal notranslate"><span class="pre">ase.Atoms.set_dihedral()</span></code>.
+If <em>mask</em> and <em>indices</em>
+are given, <em>indices</em> overwrites <em>mask</em>. If <em>mask</em> and <em>indices</em>
+are not set, only <em>a3</em> is moved.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_atomic_numbers">
+<span class="sig-name descname"><span class="pre">set_atomic_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numbers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_atomic_numbers" title="Permalink to this definition">#</a></dt>
+<dd><p>Set atomic numbers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_cell">
+<span class="sig-name descname"><span class="pre">set_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_cell" title="Permalink to this definition">#</a></dt>
+<dd><p>Set unit cell vectors.</p>
+<p>Parameters:</p>
+<dl class="simple">
+<dt>cell: 3x3 matrix or length 3 or 6 vector</dt><dd><p>Unit cell.  A 3x3 matrix (the three unit cell vectors) or
+just three numbers for an orthorhombic cell. Another option is
+6 numbers, which describes unit cell with lengths of unit cell
+vectors and with angles between them (in degrees), in following
+order: [len(a), len(b), len(c), angle(b,c), angle(a,c),
+angle(a,b)].  First vector will lie in x-direction, second in
+xy-plane, and the third one in z-positive subspace.</p>
+</dd>
+<dt>scale_atoms: bool</dt><dd><p>Fix atomic positions or move atoms with the unit cell?
+Default behavior is to <em>not</em> move the atoms (scale_atoms=False).</p>
+</dd>
+<dt>apply_constraint: bool</dt><dd><p>Whether to apply constraints to the given cell.</p>
+</dd>
+</dl>
+<p>Examples:</p>
+<p>Two equivalent ways to define an orthorhombic cell:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">Atoms</span><span class="p">(</span><span class="s1">&#39;He&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([(</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>FCC unit cell:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Hexagonal unit cell:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Rhombohedral unit cell:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">77</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">alpha</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_center_of_mass">
+<span class="sig-name descname"><span class="pre">set_center_of_mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">com</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_center_of_mass" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the center of mass.</p>
+<p>If scaled=True the center of mass is expected in scaled coordinates.
+Constraints are considered for scaled=False.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_chemical_symbols">
+<span class="sig-name descname"><span class="pre">set_chemical_symbols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_chemical_symbols" title="Permalink to this definition">#</a></dt>
+<dd><p>Set chemical symbols.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_dihedral">
+<span class="sig-name descname"><span class="pre">set_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_dihedral" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the dihedral angle (degrees) between vectors a1-&gt;a2 and
+a3-&gt;a4 by changing the atom indexed by a4.</p>
+<p>If mask is not None, all the atoms described in mask
+(read: the entire subgroup) are moved. Alternatively to the mask,
+the indices of the atoms to be rotated can be supplied. If both
+<em>mask</em> and <em>indices</em> are given, <em>indices</em> overwrites <em>mask</em>.</p>
+<p><strong>Important</strong>: If <em>mask</em> or <em>indices</em> is given and does not contain
+<em>a4</em>, <em>a4</em> will NOT be moved. In most cases you therefore want
+to include <em>a4</em> in <em>mask</em>/<em>indices</em>.</p>
+<p>Example: the following defines a very crude
+ethane-like molecule and twists one half of it by 30 degrees.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">Atoms</span><span class="p">(</span><span class="s1">&#39;HHCCHH&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>                         <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">set_dihedral</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_distance">
+<span class="sig-name descname"><span class="pre">set_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_distance" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the distance between two atoms.</p>
+<p>Set the distance between atoms <em>a0</em> and <em>a1</em> to <em>distance</em>.
+By default, the center of the two atoms will be fixed.  Use
+<em>fix=0</em> to fix the first atom, <em>fix=1</em> to fix the second
+atom and <em>fix=0.5</em> (default) to fix the center of the bond.</p>
+<p>If <em>mask</em> or <em>indices</em> are set (<em>mask</em> overwrites <em>indices</em>),
+only the atoms defined there are moved
+(see <code class="xref py py-meth docutils literal notranslate"><span class="pre">ase.Atoms.set_dihedral()</span></code>).</p>
+<p>When <em>add</em> is true, the distance is changed by the value given.
+In combination
+with <em>factor</em> True, the value given is a factor scaling the distance.</p>
+<p>It is assumed that the atoms in <em>mask</em>/<em>indices</em> move together
+with <em>a1</em>. If <em>fix=1</em>, only <em>a0</em> will therefore be moved.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_masses">
+<span class="sig-name descname"><span class="pre">set_masses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">masses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'defaults'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_masses" title="Permalink to this definition">#</a></dt>
+<dd><p>Set atomic masses in atomic mass units.</p>
+<p>The array masses should contain a list of masses.  In case
+the masses argument is not given or for those elements of the
+masses list that are None, standard values are set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_pbc">
+<span class="sig-name descname"><span class="pre">set_pbc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pbc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_pbc" title="Permalink to this definition">#</a></dt>
+<dd><p>Set periodic boundary condition flags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_positions">
+<span class="sig-name descname"><span class="pre">set_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newpositions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Set positions, honoring any constraints. To ignore constraints,
+use <em>apply_constraint=False</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.set_scaled_positions">
+<span class="sig-name descname"><span class="pre">set_scaled_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scaled</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.set_scaled_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Set positions relative to unit cell.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.sort" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a new Atoms object with sorted atomic order. The default
+is to order according to chemical symbols, but if <em>tags</em> is not
+None, it will be used instead. A stable sorting algorithm is used.</p>
+<p>Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Two unit cells of NaCl:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">5.64</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nacl</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;NaCl&#39;</span><span class="p">,</span> <span class="s1">&#39;rocksalt&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nacl</span><span class="o">.</span><span class="n">get_chemical_symbols</span><span class="p">()</span>
+<span class="go">[&#39;Na&#39;, &#39;Cl&#39;, &#39;Na&#39;, &#39;Cl&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nacl_sorted</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">nacl</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nacl_sorted</span><span class="o">.</span><span class="n">get_chemical_symbols</span><span class="p">()</span>
+<span class="go">[&#39;Cl&#39;, &#39;Cl&#39;, &#39;Na&#39;, &#39;Na&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">nacl_sorted</span><span class="o">.</span><span class="n">cell</span> <span class="o">==</span> <span class="n">nacl</span><span class="o">.</span><span class="n">cell</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">displacement</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.translate" title="Permalink to this definition">#</a></dt>
+<dd><p>Translate atomic positions.</p>
+<p>The displacement argument can be a float an xyz vector or an
+nx3 array (where n is the number of atoms).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.wrap">
+<span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">wrap_kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.wrap" title="Permalink to this definition">#</a></dt>
+<dd><p>Wrap positions to unit cell.</p>
+<p>Parameters:</p>
+<dl class="simple">
+<dt>wrap_kw: (keyword=value) pairs</dt><dd><p>optional keywords <cite>pbc</cite>, <cite>center</cite>, <cite>pretty_translation</cite>, <cite>eps</cite>,
+see <code class="xref py py-func docutils literal notranslate"><span class="pre">ase.geometry.wrap_positions()</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker._populate_methods">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">_populate_methods</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#_populate_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker._populate_methods" title="Permalink to this definition">#</a></dt>
+<dd><p>Populate the methods for the <cite>AtomsTracker</cite> class</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.dummy_function">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">dummy_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#dummy_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.dummy_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A dummy function with <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code></p>
+<p>Need to trigger dynamic namespace in aiida-core &gt;= 2.3.0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.to_aiida_rep">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">to_aiida_rep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pobj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#to_aiida_rep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.to_aiida_rep" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert to AiiDA representation and serialization.</p>
+<p>The return object is not guaranteed to fully deserialize back to the input.
+A string representation is used as the fallback.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.wop">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">wop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiida_atoms.tracker.wop" title="Permalink to this definition">#</a></dt>
+<dd><p>Wraps an ASE out of place operation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.wraps_ase_inplace">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">wraps_ase_inplace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#wraps_ase_inplace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.wraps_ase_inplace" title="Permalink to this definition">#</a></dt>
+<dd><p>Wraps an ASE in place operation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.wraps_ase_out_of_place">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">wraps_ase_out_of_place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aiida_atoms/tracker.html#wraps_ase_out_of_place"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.wraps_ase_out_of_place" title="Permalink to this definition">#</a></dt>
+<dd><p>Wraps an ASE out of place operation</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-aiida_atoms">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aiida_atoms" title="Permalink to this heading">#</a></h2>
+<p>aiida_atoms</p>
+<p>AiiDA demo plugin that wraps the <cite>diff</cite> executable for computing the difference between two files.</p>
+</div>
+</div>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../developer_guide/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Developer guide</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-aiida_atoms.tracker">aiida_atoms.tracker module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-aiida_atoms">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022-2023, Bonan Zhu. All rights reserved.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
