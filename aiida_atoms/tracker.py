@@ -7,9 +7,26 @@ import warnings
 
 from ase import Atoms
 import numpy as np
+from packaging import version
 
+from aiida import __version__ as AIIDA_VERSION
 from aiida import orm
 from aiida.engine import calcfunction
+
+
+def add_quote_mark(docstring):
+    """Add quote mark to every line - this avoids doc parsing"""
+    return "\n".join(["> " + line for line in docstring.split("\n")]) + "\n"
+
+
+def dummy_function(*args, **kwargs):
+    """
+    A dummy function with *args and **kwargs
+
+    Need to trigger dynamic namespace in aiida-core >= 2.3.0
+    """
+    _ = args
+    _ = kwargs
 
 
 def wraps_ase_out_of_place(func):
@@ -29,6 +46,9 @@ def wraps_ase_out_of_place(func):
         @wraps(func)
         def _transform(node, **dummy_args):  # pylint:disable=unused-argument
             return orm.StructureData(ase=new_atoms)
+
+        if version.parse(AIIDA_VERSION) >= version.parse("2.3.0"):
+            _transform.__wrapped__ = dummy_function
 
         transform = calcfunction(_transform)
 
@@ -61,6 +81,9 @@ def wraps_ase_inplace(func):
             # func is an inplace operation
             func(atoms, *args, **kwargs)
             return orm.StructureData(ase=atoms)
+
+        if version.parse(AIIDA_VERSION) >= version.parse("2.3.0"):
+            _transform.__wrapped__ = dummy_function
 
         transform = calcfunction(_transform)
 
