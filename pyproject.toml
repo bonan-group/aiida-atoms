@@ -49,18 +49,6 @@ docs = [
     "markupsafe<2.1"
 ]
 
-[project.entry-points."aiida.data"]
-"atoms" = "aiida_atoms.data:DiffParameters"
-
-[project.entry-points."aiida.calculations"]
-"atoms" = "aiida_atoms.calculations:DiffCalculation"
-
-[project.entry-points."aiida.parsers"]
-"atoms" = "aiida_atoms.parsers:DiffParser"
-
-[project.entry-points."aiida.cmdline.data"]
-"atoms" = "aiida_atoms.cli:data_cli"
-
 [tool.flit.module]
 name = "aiida_atoms"
 
