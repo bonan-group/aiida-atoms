@@ -17,9 +17,6 @@ Use the following commands to install the plugin::
     verdi quicksetup  # better to set up a new profile
     verdi plugin list aiida.calculations  # should now show your calculation plugins
 
-Then use ``verdi code setup`` with the ``atoms`` input plugin
-to set up an AiiDA code for aiida-atoms.
-
 Usage
 +++++
 
@@ -34,9 +31,3 @@ If you have already set up your own aiida_atoms code using
 ``verdi code setup``, you may want to try the following command::
 
     atoms-submit  # uses aiida_atoms.cli
-
-Available calculations
-++++++++++++++++++++++
-
-.. aiida-calcjob:: DiffCalculation
-    :module: aiida_atoms.calculations

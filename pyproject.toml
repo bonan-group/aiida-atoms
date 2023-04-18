@@ -21,9 +21,11 @@ classifiers = [
 ]
 keywords = ["aiida", "plugin"]
 requires-python = ">=3.7"
+
 dependencies = [
     "aiida-core>=2.0,<3",
-    "voluptuous"
+    "ase>=3,<4", "numpy"
+
 ]
 
 [project.urls]
