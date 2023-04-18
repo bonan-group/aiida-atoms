@@ -46,7 +46,7 @@ pre-commit = [
 docs = [
     "sphinx",
     "myst-parser",
-    "sphinx-auto-build",
+    "sphinx-autobuild",
     "sphinx-book-theme",
     "sphinxcontrib-contentui",
     "sphinxcontrib-details-directive",
