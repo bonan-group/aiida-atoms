@@ -43,7 +43,7 @@ def wraps_ase_out_of_place(func):
         else:
             node = _transform(tracker.node, **aiida_kwargs)
 
-        return AseAtomsTracker(obj=node,atoms=new_atoms)
+        return AtomsTracker(obj=node,atoms=new_atoms)
     return inner
 
 wop = wraps_ase_out_of_place
@@ -106,7 +106,7 @@ def to_aiida_rep(pobj):
         warnings.warn(f"Cannot serialise {pobj} - falling back to string representation.")
         return orm.Str(pobj)
 
-class AseAtomsTracker:
+class AtomsTracker:
     """Tracking changes of an atom"""
 
     def __init__(self, obj: Union[Atoms, orm.StructureData], atoms: Union[Atoms, None]=None, track=True):
@@ -138,8 +138,8 @@ def _populate_methods():
 
 
     for name in ATOMS_IN_PLACE:
-        setattr(AseAtomsTracker, name, wraps_ase_inplace(getattr(Atoms, name))) 
+        setattr(AtomsTracker, name, wraps_ase_inplace(getattr(Atoms, name))) 
     for name in ATOMS_OUT_OF_PLACE:
-        setattr(AseAtomsTracker, name, wraps_ase_out_of_place(getattr(Atoms, name))) 
+        setattr(AtomsTracker, name, wraps_ase_out_of_place(getattr(Atoms, name))) 
 
 _populate_methods()

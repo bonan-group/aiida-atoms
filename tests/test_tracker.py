@@ -5,15 +5,15 @@ Test the tracker
 import pytest
 import numpy as np
 
-from aiida_atoms.tracker import AseAtomsTracker
+from aiida_atoms.tracker import AtomsTracker
 from aiida import orm
 
 from ase.build import bulk
 
 def check_atoms_equality(a1, a2, tol=1e-10):
-    if isinstance(a1, AseAtomsTracker):
+    if isinstance(a1, AtomsTracker):
         a1 = a1.atoms
-    if isinstance(a2, AseAtomsTracker):
+    if isinstance(a2, AtomsTracker):
         a2 = a2.atoms
 
     assert abs(a1.cell - a2.cell).max() < tol
@@ -21,9 +21,9 @@ def check_atoms_equality(a1, a2, tol=1e-10):
     assert abs(a1.numbers == a2.numbers).all()
 
 def check_atoms_inequality(a1, a2, tol=1e-10):
-    if isinstance(a1, AseAtomsTracker):
+    if isinstance(a1, AtomsTracker):
         a1 = a1.atoms
-    if isinstance(a2, AseAtomsTracker):
+    if isinstance(a2, AtomsTracker):
         a2 = a2.atoms
 
     assert any(
@@ -56,7 +56,7 @@ mgo = bulk("MgO", "rocksalt", 4.0)
 def test_track_roundtrip(inplace, atoms, method_name, args, kwargs):
     """Perform tests for round trip equality"""
     init_state = atoms.copy()
-    tracker = AseAtomsTracker(atoms)
+    tracker = AtomsTracker(atoms)
 
     # Apply the operation
     oped = getattr(tracker, method_name)(*args, **kwargs)
@@ -74,11 +74,11 @@ def test_track_roundtrip(inplace, atoms, method_name, args, kwargs):
 
 
 def test_tracker_construction():
-    """Test `AseAtomsTracker` type"""
+    """Test `AtomsTracker` type"""
 
-    tracker1 = AseAtomsTracker(mgo)
+    tracker1 = AtomsTracker(mgo)
     mgo_node = orm.StructureData(ase=mgo)
-    tracker2 = AseAtomsTracker(mgo_node)
+    tracker2 = AtomsTracker(mgo_node)
 
     check_atoms_equality(tracker1, tracker2)
 
@@ -93,7 +93,7 @@ def test_provenance_tracking(clear_database):
     """Test if the provenance graph created is correct"""
 
     # Perform a mixture of inplace and out-of-place operations with branching
-    tracker = AseAtomsTracker(mgo)
+    tracker = AtomsTracker(mgo)
     node_init = tracker.node
     tracker_larger_supercell = tracker.repeat((3,3,3))
     tracker = tracker.repeat((2,2,2))
