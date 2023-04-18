@@ -12,6 +12,7 @@ from aiida_atoms.tracker import AtomsTracker
 
 
 def check_atoms_equality(a1, a2, tol=1e-10):
+    """Check if two atoms are equivalent"""
     if isinstance(a1, AtomsTracker):
         a1 = a1.atoms
     if isinstance(a2, AtomsTracker):
@@ -23,6 +24,7 @@ def check_atoms_equality(a1, a2, tol=1e-10):
 
 
 def check_atoms_inequality(a1, a2, tol=1e-10):
+    """Check if two atoms are inequivalent"""
     if isinstance(a1, AtomsTracker):
         a1 = a1.atoms
     if isinstance(a2, AtomsTracker):
@@ -59,7 +61,10 @@ mgo = bulk("MgO", "rocksalt", 4.0)
     ],
 )
 def test_track_roundtrip(inplace, atoms, method_name, args, kwargs):
-    """Perform tests for round trip equality"""
+    """
+    Perform tests for using the tracker to track in-place and out-of-place operations.
+    Test round trip equality of the results.
+    """
     init_state = atoms.copy()
     tracker = AtomsTracker(atoms)
 

@@ -21,7 +21,7 @@ def add_quote_mark(docstring):
 
 def dummy_function(*args, **kwargs):
     """
-    A dummy function with *args and **kwargs
+    A dummy function with ``*args`` and ``**kwargs``
 
     Need to trigger dynamic namespace in aiida-core >= 2.3.0
     """

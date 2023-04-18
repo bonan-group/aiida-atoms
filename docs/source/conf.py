@@ -185,6 +185,10 @@ nitpick_ignore = [
     ("py:class", "Logger"),
 ]
 
+nitpick_ignore_regex = [
+    (r"py.*", r"ase.*"),
+]
+
 
 def run_apidoc(_):
     """Runs sphinx-apidoc when building the documentation.
