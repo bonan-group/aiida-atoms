@@ -1,9 +1,11 @@
 """
 Track changes of an atom
 """
+from typing import Union
 import warnings
 from functools import wraps
 
+import numpy as np
 from ase import Atoms
 from aiida.engine import calcfunction
 from aiida import orm
@@ -29,14 +31,19 @@ def wraps_ase_out_of_place(func):
             aiida_kwargs[f"arg_{i:02d}"] = to_aiida_rep(arg)
 
         # Create a dummy connection between the input the output using @calcfunction
-        @calcfunction
+        new_atoms = func(atoms, *args, **kwargs)
         @wraps(func)
         def _transform(node, **dummy_args):
-            new_atoms = func(atoms, *args, **kwargs)
             return orm.StructureData(ase=new_atoms)
 
-        node = _transform(tracker.node, **aiida_kwargs)
-        return AseAtomsTracker.from_node(node)
+        transform = calcfunction(_transform)
+
+        if tracker.track_provenance:
+            node = transform(tracker.node, **aiida_kwargs)
+        else:
+            node = _transform(tracker.node, **aiida_kwargs)
+
+        return AseAtomsTracker(obj=node,atoms=new_atoms)
     return inner
 
 wop = wraps_ase_out_of_place
@@ -46,7 +53,7 @@ def wraps_ase_inplace(func):
     @wraps(func)
     def inner(tracker, *args, **kwargs):
         """Inner function wrapped """
-        atoms = tracker.node.get_ase()
+        atoms = tracker.atoms
         aiida_kwargs = {key: to_aiida_rep(value) for key, value in kwargs.items()}
         for i, arg in enumerate(args):
             aiida_kwargs[f"arg_{i:02d}"] = to_aiida_rep(arg)
@@ -56,18 +63,18 @@ def wraps_ase_inplace(func):
             # func is an inplace operation
             func(atoms, *args, **kwargs)
             return orm.StructureData(ase=atoms)
+        transform = calcfunction(_transform)
 
         if tracker.track_provenance:
             # Call the wrapped function if we indeed tracking the provenance
-            transform = calcfunction(_transform)
             node = transform(tracker.node, **aiida_kwargs)
         else:
             node = _transform(tracker.node, **aiida_kwargs)
-
-        return AseAtomsTracker.from_node(node)
+        # Update the current node
+        tracker.node = node
+        return tracker
     return inner
 
-wip = wraps_ase_inplace
 
 def to_aiida_rep(pobj):
     """
@@ -91,6 +98,10 @@ def to_aiida_rep(pobj):
         return orm.Int(pobj)
     elif isinstance(pobj, str):
         return orm.Str(pobj)
+    elif isinstance(pobj, np.ndarray):
+        data = orm.ArrayData()
+        data.set_array("array", pobj)
+        return data
     else:
         warnings.warn(f"Cannot serialise {pobj} - falling back to string representation.")
         return orm.Str(pobj)
@@ -98,18 +109,16 @@ def to_aiida_rep(pobj):
 class AseAtomsTracker:
     """Tracking changes of an atom"""
 
-    def __init__(self, atoms: Atoms, node=None, track=True):
+    def __init__(self, obj: Union[Atoms, orm.StructureData], atoms: Union[Atoms, None]=None, track=True):
         """Instantiate"""
-        self.atoms = atoms
-        self.node = orm.StructureData(ase=atoms) if node is None else node
+        if isinstance(obj, Atoms):
+            self.atoms = obj
+            self.node = orm.StructureData(ase=obj)
+        else:
+            self.node = obj
+            self.atoms = obj.get_ase() if atoms is None else atoms
+
         self.track_provenance = track
-
-    @classmethod
-    def from_node(cls, node):
-        """Initialize from a given node"""
-        atoms = node.get_ase()
-        return cls(atoms, node) 
-
 
 def _populate_methods():
     """Populate the methods for the `AtomsTracker` class"""
