@@ -6,17 +6,14 @@ from typing import Union
 import warnings
 
 from ase import Atoms
+from ase.build import make_supercell
+from ase.build import sort as ase_sort
 import numpy as np
 from packaging import version
 
 from aiida import __version__ as AIIDA_VERSION
 from aiida import orm
 from aiida.engine import calcfunction
-
-
-def add_quote_mark(docstring):
-    """Add quote mark to every line - this avoids doc parsing"""
-    return "\n".join(["> " + line for line in docstring.split("\n")]) + "\n"
 
 
 def dummy_function(*args, **kwargs):
@@ -147,6 +144,9 @@ class AtomsTracker:  # pylint: disable=too-few-public-methods
             self.atoms = obj.get_ase() if atoms is None else atoms
 
         self.track_provenance = track
+
+    sort = wraps_ase_out_of_place(ase_sort)
+    make_supercell = wraps_ase_out_of_place(make_supercell)
 
 
 def _populate_methods():

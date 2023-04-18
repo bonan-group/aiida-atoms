@@ -39,6 +39,29 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinxcontrib.contentui",
     "aiida.sphinxext",
+    "myst_parser",
+    "autodoc2",
+    "sphinx_copybutton",
+]
+
+myst_enable_extensions = [
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "smartquotes",
+    "linkify",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+]
+
+autodoc2_packages = [
+    "../aiida_atoms",
 ]
 
 intersphinx_mapping = {
@@ -109,10 +132,31 @@ pygments_style = "sphinx"
 
 # -- Options for HTML output ----------------------------------------------
 
-html_theme = "furo"
+html_theme = "sphinx_book_theme"
+html_theme_options = {
+    "navigation_depth": 2,
+    "repository_url": "https://github.com/zhubonan/castepxbin",
+    "use_repository_button": True,
+    "show_navbar_depth": 2,
+    "home_page_in_toc": True,
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/zhubonan/castepxbin",
+            "icon": "fa-brands fa-github",
+        },
+        {
+            "name": "PyPI",
+            "url": "https://pypi.org/project/castepxbin/",
+            "icon": "https://img.shields.io/pypi/v/castepxbin",
+            "type": "url",
+        },
+    ],
+}
+
+
 html_logo = "images/AiiDA_transparent_logo.png"
 html_title = f"aiida-atoms v{release}"
-html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # ~ html_theme_path = ["."]
@@ -157,7 +201,7 @@ html_theme_options = {}
 # html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-html_show_sourcelink = False
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 # html_show_sphinx = True
@@ -168,7 +212,7 @@ html_show_sourcelink = False
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
 # base URL from which the finished HTML is served.
-html_use_opensearch = "https://aiida-atoms.readthedocs.io"
+html_use_opensearch = "https://zhubonan.github.io/aiida-atoms"
 
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 # html_file_suffix = None
@@ -190,46 +234,46 @@ nitpick_ignore_regex = [
 ]
 
 
-def run_apidoc(_):
-    """Runs sphinx-apidoc when building the documentation.
+# def run_apidoc(_):
+#     """Runs sphinx-apidoc when building the documentation.
 
-    Needs to be done in conf.py in order to include the APIdoc in the
-    build on readthedocs.
+#     Needs to be done in conf.py in order to include the APIdoc in the
+#     build on readthedocs.
 
-    See also https://github.com/rtfd/readthedocs.org/issues/1139
-    """
-    source_dir = os.path.abspath(os.path.dirname(__file__))
-    apidoc_dir = os.path.join(source_dir, "apidoc")
-    package_dir = os.path.join(source_dir, os.pardir, os.pardir, "aiida_atoms")
+#     See also https://github.com/rtfd/readthedocs.org/issues/1139
+#     """
+#     source_dir = os.path.abspath(os.path.dirname(__file__))
+#     apidoc_dir = os.path.join(source_dir, "apidoc")
+#     package_dir = os.path.join(source_dir, os.pardir, os.pardir, "aiida_atoms")
 
-    # In #1139, they suggest the route below, but this ended up
-    # calling sphinx-build, not sphinx-apidoc
-    # from sphinx.apidoc import main
-    # main([None, '-e', '-o', apidoc_dir, package_dir, '--force'])
+#     # In #1139, they suggest the route below, but this ended up
+#     # calling sphinx-build, not sphinx-apidoc
+#     # from sphinx.apidoc import main
+#     # main([None, '-e', '-o', apidoc_dir, package_dir, '--force'])
 
-    import subprocess
+#     import subprocess
 
-    cmd_path = "sphinx-apidoc"
-    if hasattr(sys, "real_prefix"):  # Check to see if we are in a virtualenv
-        # If we are, assemble the path manually
-        cmd_path = os.path.abspath(os.path.join(sys.prefix, "bin", "sphinx-apidoc"))
+#     cmd_path = "sphinx-apidoc"
+#     if hasattr(sys, "real_prefix"):  # Check to see if we are in a virtualenv
+#         # If we are, assemble the path manually
+#         cmd_path = os.path.abspath(os.path.join(sys.prefix, "bin", "sphinx-apidoc"))
 
-    options = [
-        "-o",
-        apidoc_dir,
-        package_dir,
-        "--private",
-        "--force",
-        "--no-toc",
-    ]
+#     options = [
+#         "-o",
+#         apidoc_dir,
+#         package_dir,
+#         "--private",
+#         "--force",
+#         "--no-toc",
+#     ]
 
-    # See https://stackoverflow.com/a/30144019
-    env = os.environ.copy()
-    env[
-        "SPHINX_APIDOC_OPTIONS"
-    ] = "members,special-members,private-members,undoc-members,show-inheritance"
-    subprocess.check_call([cmd_path] + options, env=env)
+#     # See https://stackoverflow.com/a/30144019
+#     env = os.environ.copy()
+#     env[
+#         "SPHINX_APIDOC_OPTIONS"
+#     ] = "members,special-members,private-members,undoc-members,show-inheritance"
+#     subprocess.check_call([cmd_path] + options, env=env)
 
 
-def setup(app):
-    app.connect("builder-inited", run_apidoc)
+# def setup(app):
+#     app.connect("builder-inited", run_apidoc)
