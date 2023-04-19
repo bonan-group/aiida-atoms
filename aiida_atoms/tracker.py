@@ -73,10 +73,12 @@ def wraps_ase_inplace(func):
         for i, arg in enumerate(args):
             aiida_kwargs[f"arg_{i:02d}"] = to_aiida_rep(arg)
 
+        retobj = []
+
         @wraps(func)
         def _transform(node, **dummy_args):  # pylint:disable=unused-argument
             # func is an inplace operation
-            func(atoms, *args, **kwargs)
+            retobj.append(func(atoms, *args, **kwargs))
             return orm.StructureData(ase=atoms)
 
         if version.parse(AIIDA_VERSION) >= version.parse("2.3.0"):
@@ -91,7 +93,7 @@ def wraps_ase_inplace(func):
             node = _transform(tracker.node, **aiida_kwargs)
         # Update the current node
         tracker.node = node
-        return tracker
+        return retobj[0]
 
     return inner
 
@@ -147,6 +149,35 @@ class AtomsTracker:  # pylint: disable=too-few-public-methods
 
     sort = wraps_ase_out_of_place(ase_sort)
     make_supercell = wraps_ase_out_of_place(make_supercell)
+
+    @property
+    def label(self):
+        """Label of the underlying node."""
+        return self.node.label
+
+    @label.setter
+    def label(self, value):
+        """Set the label of the underlying node."""
+        self.node.label = value
+
+    @property
+    def description(self):
+        """Description of the underlying node."""
+        return self.node.label
+
+    @description.setter
+    def description(self, value):
+        """Set the description of the underlying node."""
+        self.node.description = value
+
+    @property
+    def base(self):
+        """The `base` accessor for the underlying node."""
+        return self.node.base
+
+    def store_node(self, *args, **kwargs):
+        """Store the underlying node"""
+        self.node.store(*args, **kwargs)
 
 
 def _populate_methods():

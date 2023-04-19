@@ -69,17 +69,34 @@ def test_track_roundtrip(inplace, atoms, method_name, args, kwargs):
     tracker = AtomsTracker(atoms)
 
     # Apply the operation
-    oped = getattr(tracker, method_name)(*args, **kwargs)
+    returned_obj = getattr(tracker, method_name)(*args, **kwargs)
     if inplace:
-        assert oped is tracker
         oped_atoms = atoms
         # Operate on the intitial state
-        getattr(init_state, method_name)(*args, **kwargs)
+        atoms_returned_obj = getattr(init_state, method_name)(*args, **kwargs)
+        assert returned_obj == atoms_returned_obj
     else:
         oped_atoms = getattr(atoms, method_name)(*args, **kwargs)
+        check_atoms_equality(atoms, init_state)
+        check_atoms_equality(oped_atoms, returned_obj)
 
-    check_atoms_equality(oped_atoms, oped)
-    check_atoms_equality(atoms, init_state)
+
+def test_tracker_wrap_node():
+    """Test if a tracker can wrap methods of the node correctly"""
+    tracker1 = AtomsTracker(mgo)
+    assert tracker1.label == ""
+
+    tracker1.label = "Node1"
+    assert tracker1.label == "Node1"
+    assert tracker1.node.label == "Node1"
+
+    tracker1.description = "Node1"
+    assert tracker1.description == "Node1"
+    assert tracker1.node.description == "Node1"
+
+    tracker1.store_node()
+    tracker1.base.extras.set("a", 1)
+    assert tracker1.base.extras.get("a") == 1
 
 
 def test_tracker_construction():
