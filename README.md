@@ -5,7 +5,8 @@
 
 # aiida-atoms
 
-AiiDA Plugin for keep track structure manipulations of an `ase.Atoms` object.
+AiiDA Plugin for keeping track of structure manipulations of an `ase.Atoms` objects.
+Every operation acted through the `AtomsTracker` object will be recorded on the provenance graph.
 
 ## Repository contents
 
@@ -13,17 +14,11 @@ AiiDA Plugin for keep track structure manipulations of an `ase.Atoms` object.
   * [`ci.yml`](.github/workflows/ci.yml): runs tests, checks test coverage and builds documentation at every new commit
   * [`publish-on-pypi.yml`](.github/workflows/publish-on-pypi.yml): automatically deploy git tags to PyPI - just generate a [PyPI API token](https://pypi.org/help/#apitoken) for your PyPI account and add it to the `pypi_token` secret of your github repository
 * [`aiida_atoms/`](aiida_atoms/): The main source code of the plugin package
-  * [`data/`](aiida_atoms/data/): A new `DiffParameters` data class, used as input to the `DiffCalculation` `CalcJob` class
-  * [`calculations.py`](aiida_atoms/calculations.py): A new `DiffCalculation` `CalcJob` class
-  * [`cli.py`](aiida_atoms/cli.py): Extensions of the `verdi data` command line interface for the `DiffParameters` class
-  * [`helpers.py`](aiida_atoms/helpers.py): Helpers for setting up an AiiDA code for `diff` automatically
-  * [`parsers.py`](aiida_atoms/parsers.py): A new `Parser` for the `DiffCalculation`
 * [`docs/`](docs/): A documentation template ready for publication on [Read the Docs](http://aiida-diff.readthedocs.io/en/latest/)
 * [`examples/`](examples/): An example of how to submit a calculation using this plugin
 * [`tests/`](tests/): Basic regression tests using the [pytest](https://docs.pytest.org/en/latest/) framework (submitting a calculation, ...). Install `pip install -e .[testing]` and run `pytest`.
 * [`.gitignore`](.gitignore): Telling git which files to ignore
 * [`.pre-commit-config.yaml`](.pre-commit-config.yaml): Configuration of [pre-commit hooks](https://pre-commit.com/) that sanitize coding style and check for syntax errors. Enable via `pip install -e .[pre-commit] && pre-commit install`
-* [`.readthedocs.yml`](.readthedocs.yml): Configuration of documentation build for [Read the Docs](https://readthedocs.org/)
 * [`LICENSE`](LICENSE): License for your plugin
 * [`README.md`](README.md): This file
 * [`conftest.py`](conftest.py): Configuration of fixtures for [pytest](https://docs.pytest.org/en/latest/)
@@ -32,19 +27,19 @@ AiiDA Plugin for keep track structure manipulations of an `ase.Atoms` object.
 
 ## Features
 
+- Automatic tracking of changes made to `ase.Atoms` object through its methods, and saving them to the provenance graph.
+- Wrapped other common routines that records provenance for tracking.
+- Provenance graph visualization.
 
 ## Installation
 
 ```shell
 pip install aiida-atoms
-verdi quicksetup  # better to set up a new profile
-verdi plugin list aiida.calculations  # should now show your calclulation plugins
 ```
 
 
 ## Usage
 
-Here goes a complete example of how to submit a test calculation using this plugin.
 
 ## Development
 
