@@ -6,4 +6,4 @@ AiiDA demo plugin that wraps the `diff` executable for computing the difference 
 
 from .tracker import AtomsTracker
 
-__version__ = "0.1.0a0"
+__version__ = "0.1.0"
