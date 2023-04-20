@@ -16,22 +16,41 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - uses: conda-incubator/setup-miniconda@v2
         with:
+          auto-update-conda: true
           python-version: ${{ matrix.python-version }}
+
+
       - name: Install dependencies
+        shell: bash -el {0}
         run: |
+          conda install -c conda-forge graphviz==2.47.2
+          conda info
+          conda list
           python -m pip install --upgrade pip
-          pip install .[doc]
+          pip install .[docs]
+          which dot
 
       - name: Build HTML docs
         id: linkcheck
+        shell: bash -el {0}
         run: |
           make -C docs html linkcheck 2>&1 | tee check.log
           echo "::set-output name=broken::$(grep '(line\s*[0-9]*)\(\s\)broken\(\s\)' check.log)"
+          echo "::set-output name=ok::$(grep 'build succeed' check.log)"
         env:
           SPHINXOPTS: -nW --keep-going
+
+      - name: Check build status
+        run: |
+          if [ -z "${{ steps.linkcheck.outputs.ok }}" ]; then
+              echo "Build was not successful!"
+              exit 1
+          else
+              echo "Documentation build successful"
+              exit 0
+          fi
 
       - name: Show docs build check results
         run: |

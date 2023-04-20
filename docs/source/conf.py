@@ -53,15 +53,17 @@ myst_enable_extensions = [
     "html_image",
     "replacements",
     "smartquotes",
-    "linkify",
     "strikethrough",
     "substitution",
     "tasklist",
+    "linkify",
 ]
 
 autodoc2_packages = [
     "../../aiida_atoms",
 ]
+nb_kernel_rgx_aliases = {"conda.*": "python3"}
+nb_execution_raise_on_error = True
 
 # intersphinx_mapping = {
 #    "python": ("https://docs.python.org/3", None),
@@ -134,20 +136,20 @@ pygments_style = "sphinx"
 html_theme = "sphinx_book_theme"
 html_theme_options = {
     "navigation_depth": 2,
-    "repository_url": "https://github.com/zhubonan/castepxbin",
+    "repository_url": "https://github.com/zhubonan/aiida-atoms",
     "use_repository_button": True,
     "show_navbar_depth": 2,
     "home_page_in_toc": True,
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/zhubonan/castepxbin",
+            "url": "https://github.com/zhubonan/aiida-atoms",
             "icon": "fa-brands fa-github",
         },
         {
             "name": "PyPI",
-            "url": "https://pypi.org/project/castepxbin/",
-            "icon": "https://img.shields.io/pypi/v/castepxbin",
+            "url": "https://pypi.org/project/aiida-atoms/",
+            "icon": "https://img.shields.io/pypi/v/aiida-atoms",
             "type": "url",
         },
     ],

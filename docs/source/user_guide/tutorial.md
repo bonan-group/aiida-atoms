@@ -2,6 +2,5 @@
 
 ```{toctree}
 
-../../../examples/tracking-example.ipynb
-
+tracking-example.ipynb
 ```

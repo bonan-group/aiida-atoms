@@ -52,7 +52,6 @@ pre-commit install  # install pre-commit hooks
 pytest -v  # discover and run all tests
 ```
 
-See the [developer guide](http://aiida-atoms.readthedocs.io/en/latest/developer_guide/index.html) for more information.
 
 ## License
 
@@ -66,7 +65,7 @@ zhubonan@outlook.com
 [ci-link]: https://github.com/zhubonan/aiida-atoms/actions
 [cov-badge]: https://coveralls.io/repos/github/zhubonan/aiida-atoms/badge.svg?branch=master
 [cov-link]: https://coveralls.io/github/zhubonan/aiida-atoms?branch=master
-[docs-badge]: https://readthedocs.org/projects/aiida-atoms/badge
-[docs-link]: http://aiida-atoms.readthedocs.io/
+[docs-link]: https://zhubonan.github.io/aiida-atoms/
+[docs-badge]: https://github.com/zhubonan/aiida-atoms/actions/workflows/docs.yml/badge.svg
 [pypi-badge]: https://badge.fury.io/py/aiida-atoms.svg
 [pypi-link]: https://badge.fury.io/py/aiida-atoms

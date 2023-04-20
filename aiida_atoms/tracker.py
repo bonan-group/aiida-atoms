@@ -150,6 +150,11 @@ class AtomsTracker:  # pylint: disable=too-few-public-methods
 
         self.track_provenance = track
 
+    def __repr__(self) -> str:
+        """Python representation"""
+        string = f"AtomsTracker({self.atoms.__repr__()}, {self.node.__repr__()})"
+        return string
+
     sort = wraps_ase_out_of_place(ase_sort)
     make_supercell = wraps_ase_out_of_place(make_supercell)
 
@@ -166,7 +171,17 @@ class AtomsTracker:  # pylint: disable=too-few-public-methods
     @property
     def description(self):
         """Description of the underlying node."""
-        return self.node.label
+        return self.node.description
+
+    @property
+    def id(self):  # pylint: disable=invalid-name
+        """ID of the underlying node"""
+        return self.node.id
+
+    @property
+    def uuid(self):
+        """UUID of the underlying node"""
+        return self.node.uuid
 
     @description.setter
     def description(self, value):
