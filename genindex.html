@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
   
@@ -42,6 +43,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -143,7 +145,7 @@
           
           
           
-          <a href="https://github.com/zhubonan/castepxbin" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+          <a href="https://github.com/zhubonan/aiida-atoms" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -155,7 +157,7 @@
           
           
           
-          <a href="https://pypi.org/project/castepxbin/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/castepxbin" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/aiida-atoms/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/aiida-atoms" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -171,11 +173,21 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="user_guide/index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/get_started.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="user_guide/tutorial.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide/tracking-example.html">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/index.html">Developer guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apidoc/aiida_atoms.html">API documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="apidocs/index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
 </ul>
 
@@ -220,7 +232,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/zhubonan/castepxbin" target="_blank"
+<a href="https://github.com/zhubonan/aiida-atoms" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -298,39 +310,27 @@ document.write(`
 <div class="genindex-jumpbox">
  <a href="#_"><strong>_</strong></a>
  | <a href="#A"><strong>A</strong></a>
- | <a href="#C"><strong>C</strong></a>
+ | <a href="#B"><strong>B</strong></a>
  | <a href="#D"><strong>D</strong></a>
- | <a href="#E"><strong>E</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
- | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__delitem__">__delitem__() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__dict__">__dict__ (aiida_atoms.tracker.AtomsTracker attribute)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__getitem__">__getitem__() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__imul__">__imul__() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.__repr__">__repr__() (aiida_atoms.tracker.AtomsTracker method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__init__">__init__() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.html#aiida_atoms.__version__">__version__ (in module aiida_atoms)</a>
 </li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__module__">__module__ (aiida_atoms.tracker.AtomsTracker attribute)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__mul__">__mul__() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__weakref__">__weakref__ (aiida_atoms.tracker.AtomsTracker attribute)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker._populate_methods">_populate_methods() (in module aiida_atoms.tracker)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker._populate_methods">_populate_methods() (in module aiida_atoms.tracker)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -342,27 +342,34 @@ document.write(`
     aiida_atoms
 
       <ul>
-        <li><a href="apidoc/aiida_atoms.html#module-aiida_atoms">module</a>
+        <li><a href="apidocs/aiida_atoms/aiida_atoms.html#module-aiida_atoms">module</a>
+</li>
+      </ul></li>
+      <li>
+    aiida_atoms.tracker
+
+      <ul>
+        <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#module-aiida_atoms.tracker">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    aiida_atoms.tracker
+    aiida_atoms.transformations
 
       <ul>
-        <li><a href="apidoc/aiida_atoms.html#module-aiida_atoms.tracker">module</a>
+        <li><a href="apidocs/aiida_atoms/aiida_atoms.transformations.html#module-aiida_atoms.transformations">module</a>
 </li>
       </ul></li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker">AtomsTracker (class in aiida_atoms.tracker)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker">AtomsTracker (class in aiida_atoms.tracker)</a>
 </li>
   </ul></td>
 </tr></table>
 
-<h2 id="C">C</h2>
+<h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.center">center() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.base">base (aiida_atoms.tracker.AtomsTracker property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -370,15 +377,27 @@ document.write(`
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.dummy_function">dummy_function() (in module aiida_atoms.tracker)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.description">description (aiida_atoms.tracker.AtomsTracker property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.dummy_function">dummy_function() (in module aiida_atoms.tracker)</a>
 </li>
   </ul></td>
 </tr></table>
 
-<h2 id="E">E</h2>
+<h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.euler_rotate">euler_rotate() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.id">id (aiida_atoms.tracker.AtomsTracker property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.label">label (aiida_atoms.tracker.AtomsTracker property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -386,72 +405,32 @@ document.write(`
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.make_supercell">make_supercell() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.make_supercell">make_supercell (aiida_atoms.tracker.AtomsTracker attribute)</a>
+</li>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.transformations.html#aiida_atoms.transformations.make_supercell">make_supercell() (in module aiida_atoms.transformations)</a>
 </li>
       <li>
     module
 
       <ul>
-        <li><a href="apidoc/aiida_atoms.html#module-aiida_atoms">aiida_atoms</a>
+        <li><a href="apidocs/aiida_atoms/aiida_atoms.html#module-aiida_atoms">aiida_atoms</a>
 </li>
-        <li><a href="apidoc/aiida_atoms.html#module-aiida_atoms.tracker">aiida_atoms.tracker</a>
+        <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#module-aiida_atoms.tracker">aiida_atoms.tracker</a>
+</li>
+        <li><a href="apidocs/aiida_atoms/aiida_atoms.transformations.html#module-aiida_atoms.transformations">aiida_atoms.transformations</a>
 </li>
       </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.pop">pop() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.rattle">rattle() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.repeat">repeat() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.rotate">rotate() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.rotate_dihedral">rotate_dihedral() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_angle">set_angle() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_atomic_numbers">set_atomic_numbers() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_cell">set_cell() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_center_of_mass">set_center_of_mass() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_chemical_symbols">set_chemical_symbols() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_dihedral">set_dihedral() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.sort">sort (aiida_atoms.tracker.AtomsTracker attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_distance">set_distance() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_masses">set_masses() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_pbc">set_pbc() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_positions">set_positions() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.set_scaled_positions">set_scaled_positions() (aiida_atoms.tracker.AtomsTracker method)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.sort">sort() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.store_node">store_node() (aiida_atoms.tracker.AtomsTracker method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -459,11 +438,15 @@ document.write(`
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.to_aiida_rep">to_aiida_rep() (in module aiida_atoms.tracker)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.to_aiida_rep">to_aiida_rep() (in module aiida_atoms.tracker)</a>
 </li>
   </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.translate">translate() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.uuid">uuid (aiida_atoms.tracker.AtomsTracker property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -471,15 +454,13 @@ document.write(`
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.wop">wop() (in module aiida_atoms.tracker)</a>
-</li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.wrap">wrap() (aiida_atoms.tracker.AtomsTracker method)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.wop">wop (in module aiida_atoms.tracker)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.wraps_ase_inplace">wraps_ase_inplace() (in module aiida_atoms.tracker)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.wraps_ase_inplace">wraps_ase_inplace() (in module aiida_atoms.tracker)</a>
 </li>
-      <li><a href="apidoc/aiida_atoms.html#aiida_atoms.tracker.wraps_ase_out_of_place">wraps_ase_out_of_place() (in module aiida_atoms.tracker)</a>
+      <li><a href="apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.wraps_ase_out_of_place">wraps_ase_out_of_place() (in module aiida_atoms.tracker)</a>
 </li>
   </ul></td>
 </tr></table>

@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/contentui.css" />
   
@@ -42,6 +43,7 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -143,7 +145,7 @@
           
           
           
-          <a href="https://github.com/zhubonan/castepxbin" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+          <a href="https://github.com/zhubonan/aiida-atoms" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -155,7 +157,7 @@
           
           
           
-          <a href="https://pypi.org/project/castepxbin/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/castepxbin" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/aiida-atoms/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/aiida-atoms" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -171,11 +173,21 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../user_guide/index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../user_guide/get_started.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../user_guide/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user_guide/tutorial.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/tracking-example.html">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/index.html">Developer guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../apidoc/aiida_atoms.html">API documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../apidocs/index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../apidocs/aiida_atoms/aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
 </ul>
 
@@ -220,7 +232,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/zhubonan/castepxbin" target="_blank"
+<a href="https://github.com/zhubonan/aiida-atoms" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -303,7 +315,6 @@ document.write(`
 <span class="kn">from</span> <span class="nn">ase</span> <span class="kn">import</span> <span class="n">Atoms</span>
 <span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">make_supercell</span>
 <span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">sort</span> <span class="k">as</span> <span class="n">ase_sort</span>
-
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">packaging</span> <span class="kn">import</span> <span class="n">version</span>
 
@@ -312,8 +323,8 @@ document.write(`
 <span class="kn">from</span> <span class="nn">aiida.engine</span> <span class="kn">import</span> <span class="n">calcfunction</span>
 
 
-<div class="viewcode-block" id="dummy_function"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker.dummy_function">[docs]</a><span class="k">def</span> <span class="nf">dummy_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="dummy_function"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.dummy_function">[docs]</a><span class="k">def</span> <span class="nf">dummy_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A dummy function with ``*args`` and ``**kwargs``</span>
 
 <span class="sd">    Need to trigger dynamic namespace in aiida-core &gt;= 2.3.0</span>
@@ -322,12 +333,12 @@ document.write(`
     <span class="n">_</span> <span class="o">=</span> <span class="n">kwargs</span></div>
 
 
-<div class="viewcode-block" id="wraps_ase_out_of_place"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker.wraps_ase_out_of_place">[docs]</a><span class="k">def</span> <span class="nf">wraps_ase_out_of_place</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Wraps an ASE out of place operation&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="wraps_ase_out_of_place"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.wraps_ase_out_of_place">[docs]</a><span class="k">def</span> <span class="nf">wraps_ase_out_of_place</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps an ASE out of place operation&quot;&quot;&quot;</span>
 
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">tracker</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Inner function wrapped&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Inner function wrapped&quot;&quot;&quot;</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">get_ase</span><span class="p">()</span>
         <span class="n">aiida_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">to_aiida_rep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
@@ -358,21 +369,23 @@ document.write(`
 <span class="n">wop</span> <span class="o">=</span> <span class="n">wraps_ase_out_of_place</span>
 
 
-<div class="viewcode-block" id="wraps_ase_inplace"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker.wraps_ase_inplace">[docs]</a><span class="k">def</span> <span class="nf">wraps_ase_inplace</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Wraps an ASE in place operation&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="wraps_ase_inplace"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.wraps_ase_inplace">[docs]</a><span class="k">def</span> <span class="nf">wraps_ase_inplace</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps an ASE in place operation&quot;&quot;&quot;</span>
 
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">tracker</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Inner function wrapped&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Inner function wrapped&quot;&quot;&quot;</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">atoms</span>
         <span class="n">aiida_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">to_aiida_rep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
             <span class="n">aiida_kwargs</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;arg_</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_aiida_rep</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 
+        <span class="n">retobj</span> <span class="o">=</span> <span class="p">[]</span>
+
         <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
         <span class="k">def</span> <span class="nf">_transform</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">dummy_args</span><span class="p">):</span>  <span class="c1"># pylint:disable=unused-argument</span>
             <span class="c1"># func is an inplace operation</span>
-            <span class="n">func</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">retobj</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
             <span class="k">return</span> <span class="n">orm</span><span class="o">.</span><span class="n">StructureData</span><span class="p">(</span><span class="n">ase</span><span class="o">=</span><span class="n">atoms</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">AIIDA_VERSION</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2.3.0&quot;</span><span class="p">):</span>
@@ -387,13 +400,13 @@ document.write(`
             <span class="n">node</span> <span class="o">=</span> <span class="n">_transform</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">aiida_kwargs</span><span class="p">)</span>
         <span class="c1"># Update the current node</span>
         <span class="n">tracker</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
-        <span class="k">return</span> <span class="n">tracker</span>
+        <span class="k">return</span> <span class="n">retobj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">inner</span></div>
 
 
-<div class="viewcode-block" id="to_aiida_rep"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker.to_aiida_rep">[docs]</a><span class="k">def</span> <span class="nf">to_aiida_rep</span><span class="p">(</span><span class="n">pobj</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="to_aiida_rep"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.to_aiida_rep">[docs]</a><span class="k">def</span> <span class="nf">to_aiida_rep</span><span class="p">(</span><span class="n">pobj</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert to AiiDA representation and serialization.</span>
 
 <span class="sd">    The return object is not guaranteed to fully deserialize back to the input.</span>
@@ -422,31 +435,78 @@ document.write(`
     <span class="k">return</span> <span class="n">orm</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">pobj</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="AtomsTracker"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker">[docs]</a><span class="k">class</span> <span class="nc">AtomsTracker</span><span class="p">:</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
-    <span class="sd">&quot;&quot;&quot;Tracking changes of an atom&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AtomsTracker"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker">[docs]</a><span class="k">class</span> <span class="nc">AtomsTracker</span><span class="p">:</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tracking changes of an atom&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AtomsTracker.__init__"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker.AtomsTracker.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">obj</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">orm</span><span class="o">.</span><span class="n">StructureData</span><span class="p">],</span>
+        <span class="n">obj</span><span class="p">,</span>
         <span class="n">atoms</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Atoms</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">track</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Instantiate&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Instantiate&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Atoms</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="n">obj</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">orm</span><span class="o">.</span><span class="n">StructureData</span><span class="p">(</span><span class="n">ase</span><span class="o">=</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">AtomsTracker</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">node</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">get_ase</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">obj</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_ase</span><span class="p">()</span> <span class="k">if</span> <span class="n">atoms</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">atoms</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">get_ase</span><span class="p">()</span> <span class="k">if</span> <span class="n">atoms</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">atoms</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">track_provenance</span> <span class="o">=</span> <span class="n">track</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">track_provenance</span> <span class="o">=</span> <span class="n">track</span>
+
+<div class="viewcode-block" id="AtomsTracker.__repr__"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.__repr__">[docs]</a>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Python representation&quot;&quot;&quot;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;AtomsTracker(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="n">string</span></div>
 
     <span class="n">sort</span> <span class="o">=</span> <span class="n">wraps_ase_out_of_place</span><span class="p">(</span><span class="n">ase_sort</span><span class="p">)</span>
-    <span class="n">make_supercell</span> <span class="o">=</span> <span class="n">wraps_ase_out_of_place</span><span class="p">(</span><span class="n">make_supercell</span><span class="p">)</span></div>
+    <span class="n">make_supercell</span> <span class="o">=</span> <span class="n">wraps_ase_out_of_place</span><span class="p">(</span><span class="n">make_supercell</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Label of the underlying node.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">label</span>
+
+    <span class="nd">@label</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the label of the underlying node.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Description of the underlying node.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">description</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pylint: disable=invalid-name</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;ID of the underlying node&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;UUID of the underlying node&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">uuid</span>
+
+    <span class="nd">@description</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the description of the underlying node.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The `base` accessor for the underlying node.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">base</span>
+
+<div class="viewcode-block" id="AtomsTracker.store_node"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker.AtomsTracker.store_node">[docs]</a>    <span class="k">def</span> <span class="nf">store_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Store the underlying node&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="_populate_methods"><a class="viewcode-back" href="../../apidoc/aiida_atoms.html#aiida_atoms.tracker._populate_methods">[docs]</a><span class="k">def</span> <span class="nf">_populate_methods</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Populate the methods for the `AtomsTracker` class&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="_populate_methods"><a class="viewcode-back" href="../../apidocs/aiida_atoms/aiida_atoms.tracker.html#aiida_atoms.tracker._populate_methods">[docs]</a><span class="k">def</span> <span class="nf">_populate_methods</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Populate the methods for the `AtomsTracker` class&quot;&quot;&quot;</span>
 
     <span class="n">methods_in_place</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s2">&quot;set_cell&quot;</span><span class="p">,</span>

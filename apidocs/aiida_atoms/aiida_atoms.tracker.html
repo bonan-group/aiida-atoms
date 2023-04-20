@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>aiida_atoms.tracker &#8212; aiida-atoms v0.1.0a0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/contentui.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/contentui.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'apidocs/aiida_atoms/aiida_atoms.tracker';</script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within aiida-atoms v0.1.0a0"
+          href="../../_static/opensearch.xml"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="aiida_atoms.transformations" href="aiida_atoms.transformations.html" />
+    <link rel="prev" title="aiida_atoms" href="aiida_atoms.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/AiiDA_transparent_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/AiiDA_transparent_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/zhubonan/aiida-atoms" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/aiida-atoms/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/aiida-atoms" class="icon-link-image" alt="PyPI"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    The aiida-atoms plugin for AiiDA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../user_guide/index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/get_started.html">Getting started</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user_guide/tutorial.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/tracking-example.html">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/index.html">Developer guide</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/zhubonan/aiida-atoms" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/apidocs/aiida_atoms/aiida_atoms.tracker.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>aiida_atoms.tracker</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.dummy_function"><code class="docutils literal notranslate"><span class="pre">dummy_function()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.wraps_ase_out_of_place"><code class="docutils literal notranslate"><span class="pre">wraps_ase_out_of_place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.wop"><code class="docutils literal notranslate"><span class="pre">wop</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.wraps_ase_inplace"><code class="docutils literal notranslate"><span class="pre">wraps_ase_inplace()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.to_aiida_rep"><code class="docutils literal notranslate"><span class="pre">to_aiida_rep()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker"><code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.__repr__"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.__repr__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.sort"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.sort</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.make_supercell"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.make_supercell</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.label"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.label</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.description"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.description</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.id"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.id</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.uuid"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.uuid</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.base"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.base</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.store_node"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.store_node()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker._populate_methods"><code class="docutils literal notranslate"><span class="pre">_populate_methods()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-aiida_atoms.tracker">
+<span id="aiida-atoms-tracker"></span><h1><a class="reference internal" href="#module-aiida_atoms.tracker" title="aiida_atoms.tracker"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a><a class="headerlink" href="#module-aiida_atoms.tracker" title="Permalink to this heading">#</a></h1>
+<p>Track changes of an atom</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#aiida_atoms.tracker.AtomsTracker" title="aiida_atoms.tracker.AtomsTracker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></p></td>
+<td><p>Tracking changes of an atom</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#aiida_atoms.tracker.dummy_function" title="aiida_atoms.tracker.dummy_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dummy_function</span></code></a></p></td>
+<td><p>A dummy function with <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#aiida_atoms.tracker.wraps_ase_out_of_place" title="aiida_atoms.tracker.wraps_ase_out_of_place"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wraps_ase_out_of_place</span></code></a></p></td>
+<td><p>Wraps an ASE out of place operation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#aiida_atoms.tracker.wraps_ase_inplace" title="aiida_atoms.tracker.wraps_ase_inplace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wraps_ase_inplace</span></code></a></p></td>
+<td><p>Wraps an ASE in place operation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#aiida_atoms.tracker.to_aiida_rep" title="aiida_atoms.tracker.to_aiida_rep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_aiida_rep</span></code></a></p></td>
+<td><p>Convert to AiiDA representation and serialization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#aiida_atoms.tracker._populate_methods" title="aiida_atoms.tracker._populate_methods"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_populate_methods</span></code></a></p></td>
+<td><p>Populate the methods for the <cite>AtomsTracker</cite> class</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#aiida_atoms.tracker.wop" title="aiida_atoms.tracker.wop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wop</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.dummy_function">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">dummy_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#dummy_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.dummy_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A dummy function with <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code></p>
+<p>Need to trigger dynamic namespace in aiida-core &gt;= 2.3.0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.wraps_ase_out_of_place">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">wraps_ase_out_of_place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#wraps_ase_out_of_place"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.wraps_ase_out_of_place" title="Permalink to this definition">#</a></dt>
+<dd><p>Wraps an ASE out of place operation</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.wop">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">wop</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiida_atoms.tracker.wop" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.wraps_ase_inplace">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">wraps_ase_inplace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#wraps_ase_inplace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.wraps_ase_inplace" title="Permalink to this definition">#</a></dt>
+<dd><p>Wraps an ASE in place operation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.to_aiida_rep">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">to_aiida_rep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pobj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#to_aiida_rep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.to_aiida_rep" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert to AiiDA representation and serialization.</p>
+<p>The return object is not guaranteed to fully deserialize back to the input.
+A string representation is used as the fallback.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">AtomsTracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">ase.Atoms</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#AtomsTracker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker" title="Permalink to this definition">#</a></dt>
+<dd><p>Tracking changes of an atom</p>
+<p class="rubric">Initialization</p>
+<p>Instantiate</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#AtomsTracker.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.__repr__" title="Permalink to this definition">#</a></dt>
+<dd><p>Python representation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.sort" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.make_supercell">
+<span class="sig-name descname"><span class="pre">make_supercell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.make_supercell" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.label" title="Permalink to this definition">#</a></dt>
+<dd><p>Label of the underlying node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.description">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.description" title="Permalink to this definition">#</a></dt>
+<dd><p>Description of the underlying node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.id" title="Permalink to this definition">#</a></dt>
+<dd><p>ID of the underlying node</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.uuid">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uuid</span></span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.uuid" title="Permalink to this definition">#</a></dt>
+<dd><p>UUID of the underlying node</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.base">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base</span></span><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.base" title="Permalink to this definition">#</a></dt>
+<dd><p>The <cite>base</cite> accessor for the underlying node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiida_atoms.tracker.AtomsTracker.store_node">
+<span class="sig-name descname"><span class="pre">store_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#AtomsTracker.store_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker.AtomsTracker.store_node" title="Permalink to this definition">#</a></dt>
+<dd><p>Store the underlying node</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aiida_atoms.tracker._populate_methods">
+<span class="sig-prename descclassname"><span class="pre">aiida_atoms.tracker.</span></span><span class="sig-name descname"><span class="pre">_populate_methods</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aiida_atoms/tracker.html#_populate_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aiida_atoms.tracker._populate_methods" title="Permalink to this definition">#</a></dt>
+<dd><p>Populate the methods for the <cite>AtomsTracker</cite> class</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="aiida_atoms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="aiida_atoms.transformations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.dummy_function"><code class="docutils literal notranslate"><span class="pre">dummy_function()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.wraps_ase_out_of_place"><code class="docutils literal notranslate"><span class="pre">wraps_ase_out_of_place()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.wop"><code class="docutils literal notranslate"><span class="pre">wop</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.wraps_ase_inplace"><code class="docutils literal notranslate"><span class="pre">wraps_ase_inplace()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.to_aiida_rep"><code class="docutils literal notranslate"><span class="pre">to_aiida_rep()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker"><code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.__repr__"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.__repr__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.sort"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.sort</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.make_supercell"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.make_supercell</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.label"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.label</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.description"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.description</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.id"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.id</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.uuid"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.uuid</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.base"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.base</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker.AtomsTracker.store_node"><code class="docutils literal notranslate"><span class="pre">AtomsTracker.store_node()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aiida_atoms.tracker._populate_methods"><code class="docutils literal notranslate"><span class="pre">_populate_methods()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022-2023, Bonan Zhu. All rights reserved.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

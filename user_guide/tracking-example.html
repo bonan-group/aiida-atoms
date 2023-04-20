@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Using AtomsTracker &#8212; aiida-atoms v0.1.0a0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/contentui.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/tracking-example';</script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within aiida-atoms v0.1.0a0"
+          href="../_static/opensearch.xml"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer guide" href="../developer_guide/index.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/AiiDA_transparent_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/AiiDA_transparent_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/zhubonan/aiida-atoms" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/aiida-atoms/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/aiida-atoms" class="icon-link-image" alt="PyPI"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    The aiida-atoms plugin for AiiDA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="get_started.html">Getting started</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="tutorial.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/index.html">Developer guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../apidocs/index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/zhubonan/aiida-atoms" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/user_guide/tracking-example.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using AtomsTracker</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-operations-performed-on-ase-atoms">Tracking operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-provenance">Visualising provenance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcuts">Shortcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accesing-the-data-later">Accesing the data later</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="using-atomstracker">
+<h1>Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code><a class="headerlink" href="#using-atomstracker" title="Permalink to this heading">#</a></h1>
+<p>Here we show how to use <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> to automatically record operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code></p>
+<p>Installing AiiDA takes a few extra steps and require setting up an database normally (see <a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html">here</a>).<br />
+Here, for demostration only, we use a temporay profile with <code class="docutils literal notranslate"><span class="pre">SqliteTempBackend</span></code>.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiida</span> <span class="kn">import</span> <span class="n">load_profile</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">orm</span><span class="p">,</span> <span class="n">plugins</span>
+<span class="kn">from</span> <span class="nn">aiida.manage.configuration</span> <span class="kn">import</span> <span class="n">get_config</span>
+<span class="kn">from</span> <span class="nn">aiida.storage.sqlite_temp</span> <span class="kn">import</span> <span class="n">SqliteTempBackend</span>
+
+<span class="o">%</span><span class="k">load_ext</span> aiida
+
+<span class="n">profile</span> <span class="o">=</span> <span class="n">load_profile</span><span class="p">(</span>
+    <span class="n">SqliteTempBackend</span><span class="o">.</span><span class="n">create_profile</span><span class="p">(</span>
+        <span class="s1">&#39;myprofile&#39;</span><span class="p">,</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;warnings.development_version&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;runner.poll.interval&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="n">debug</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">),</span>
+    <span class="n">allow_switch</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set_default_profile</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">profile</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profile&lt;uuid=&#39;1ee44284bf744be8a27a429a30d409ce&#39; name=&#39;myprofile&#39;&gt;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiida_atoms</span> <span class="kn">import</span> <span class="n">AtomsTracker</span>
+<span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object models a atomic structure can be used in various ways. It is the centre piece to the <code class="docutils literal notranslate"><span class="pre">ase</span></code> ecosystem and used for constructing structure, data analysis and also calculations themselves.
+Here, we focus the first use case - using <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> for constructing input structures used in various materials modelling workflows.
+A common pattern is to start from a bulk structure, constructed manually or loaded from a online database (such as ICSD), and perform certain operations before it is used as inputs for first-principles calculations.</p>
+<p>In this example, we start with a carbon in the diamond structure to create a defect supercell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a supercell can be done with <code class="docutils literal notranslate"><span class="pre">.repeat</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supercell</span> <span class="o">=</span> <span class="n">c2</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>note that <code class="docutils literal notranslate"><span class="pre">.repeat</span></code> is an out of place operation - a new <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object is created</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">supercell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C54&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s remove an atom from it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supercell</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">supercell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now our supercell has only 53 atoms, we write it to the disk</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supercell</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;C_Vac_c.vasp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The structure can be read into a different python session for further operation or used for calculation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ase.io</span>
+<span class="n">supercell_loaded</span> <span class="o">=</span> <span class="n">ase</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;C_Vac_c.vasp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="tracking-operations-performed-on-ase-atoms">
+<h2>Tracking operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code><a class="headerlink" href="#tracking-operations-performed-on-ase-atoms" title="Permalink to this heading">#</a></h2>
+<p>However, if the file <code class="docutils literal notranslate"><span class="pre">C_Vac_c.vasp</span></code> itself does not contain any history about how it was made, e.g  which structure was used as the bulk and which atom was remove.</p>
+<p>Let’s put the <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> into use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;C2 Primitive&quot;</span>
+<span class="n">defect_cell</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">defect_cell</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">defect_cell</span><span class="o">.</span><span class="n">rattle</span><span class="p">(</span><span class="n">stdev</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">defect_cell</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;C2 Rattled supercell&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>now both <code class="docutils literal notranslate"><span class="pre">tracker</span></code> and <code class="docutils literal notranslate"><span class="pre">supercell</span></code> are <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> objects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defect_cell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]]), &lt;StructureData: uuid: 88781837-1c09-4872-aa96-4693d8ba91ba (pk: 2)&gt;)
+AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...), &lt;StructureData: uuid: a65cace8-1cd8-4159-8d55-6703a00943ba (pk: 11)&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>An <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> is just an <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object plus an <code class="docutils literal notranslate"><span class="pre">aiida.orm.StructureData</span></code> with methods of <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> attached.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]])
+&lt;StructureData: uuid: 88781837-1c09-4872-aa96-4693d8ba91ba (pk: 2)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">defect_cell</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">defect_cell</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...)
+&lt;StructureData: uuid: a65cace8-1cd8-4159-8d55-6703a00943ba (pk: 11)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the <code class="docutils literal notranslate"><span class="pre">supercell</span></code> includes the history show how it was made</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_pop</span> <span class="o">=</span> <span class="n">defect_cell</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc_pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinkTriple(node=&lt;CalcFunctionNode: uuid: a4d78b1f-239e-4698-8b91-6caadaf92acb (pk: 10) (ase.atoms.Atoms.rattle)&gt;, link_type=&lt;LinkType.CREATE: &#39;create&#39;&gt;, link_label=&#39;result&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">LinkTriple</span></code> is an object to represent a link between two nodes. Here, one is the output strucutre <code class="docutils literal notranslate"><span class="pre">supercell.node</span></code> and the other is a <code class="docutils literal notranslate"><span class="pre">Calculation</span></code> that create the output.</p>
+<p>We can also check what are the inputs used in this calculation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_func</span> <span class="o">=</span> <span class="n">calc_pop</span><span class="o">.</span><span class="n">node</span>
+<span class="n">calc_func</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;Float: uuid: 7ef8e62a-b00f-45b4-a88f-0ca3599fa759 (pk: 8) value: 0.05&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;stdev&#39;),
+ LinkTriple(node=&lt;Int: uuid: e5f7c3bf-f617-42c7-ace7-220d83735414 (pk: 9) value: 11&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;seed&#39;),
+ LinkTriple(node=&lt;StructureData: uuid: 6eb278d5-15d1-4a70-8666-4486e6deb746 (pk: 7)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualising-provenance">
+<h2>Visualising provenance<a class="headerlink" href="#visualising-provenance" title="Permalink to this heading">#</a></h2>
+<p>Let’s visualise the provenance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiida.tools.visualization</span> <span class="kn">import</span> <span class="n">Graph</span>
+<span class="k">def</span> <span class="nf">view_provenance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">graph_attr</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span><span class="s2">&quot;7.0&quot;</span><span class="p">})</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">recurse_ancestors</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">annotate_links</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">graph</span><span class="o">.</span><span class="n">graphviz</span>
+<span class="k">def</span> <span class="nf">view_descendants</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">graph_attr</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span><span class="s2">&quot;7.0&quot;</span><span class="p">})</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">recurse_descendants</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">annotate_links</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">include_process_inputs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">graph</span><span class="o">.</span><span class="n">graphviz</span>
+<span class="n">view_provenance</span><span class="p">(</span><span class="n">defect_cell</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fe8f12cfaac049353f60b4585489d8c62ecd6a3148dcdb13928a63ff69d7d521.svg" src="../_images/fe8f12cfaac049353f60b4585489d8c62ecd6a3148dcdb13928a63ff69d7d521.svg" /></div>
+</div>
+<p>Great, we now have a full history of how our defect supercell is created.<br />
+<code class="docutils literal notranslate"><span class="pre">note</span></code>{The links are labeled with the names of the keyword arguments, but the positional arguments are labeld with <em>arg_00</em>.}</p>
+<p>Now let’ts create more defect structures, note the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation does an inplace mutation of the <code class="docutils literal notranslate"><span class="pre">supercell</span></code>.
+Since the intermeidate resutls are all store, we can rewind it back without problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perfect_supercell</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">orm</span><span class="o">.</span><span class="n">load_node</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">defect2</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">perfect_supercell</span><span class="p">)</span>
+<span class="n">defect2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atom(&#39;C&#39;, [0.8925, 0.8925, 0.8925], mass=12.011)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">defect2</span></code> is returned is actually the same <code class="docutils literal notranslate"><span class="pre">atoms</span></code> - this is different from the <code class="docutils literal notranslate"><span class="pre">ase.Atoms.pop</span></code> which returns the poped atom.
+The tracker has this behaviour to allow operations to be chained in a single line.
+But for out of place operation, such as <code class="docutils literal notranslate"><span class="pre">repeat</span></code> or <code class="docutils literal notranslate"><span class="pre">sort</span></code> this the returned tracker will be a new object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_defect2</span> <span class="o">=</span> <span class="n">defect2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">sorted_defect2</span> <span class="ow">is</span> <span class="n">defect2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another useful information is to check what are the descendants of a root node.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view_descendants</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ca1b24522850c5d9b04af782af21b95a24670569f62cb598de222ecd0eb6dc65.svg" src="../_images/ca1b24522850c5d9b04af782af21b95a24670569f62cb598de222ecd0eb6dc65.svg" /></div>
+</div>
+</section>
+<section id="shortcuts">
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this heading">#</a></h2>
+<p>Attributes of the underlying node can access via the <code class="docutils literal notranslate"><span class="pre">.base</span></code> accessor, it is equivalent to <code class="docutils literal notranslate"><span class="pre">.node.base</span></code>, for example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: c12c248f-b51c-4604-8c74-2e589ab90cbd (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>is equivalent to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: c12c248f-b51c-4604-8c74-2e589ab90cbd (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">label</span></code> and <code class="docutils literal notranslate"><span class="pre">descriptions</span></code> of the underlying <code class="docutils literal notranslate"><span class="pre">node</span></code> can also be accessed this way</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">label</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C2 Primitive&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;An initial C2 primitive cell&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>An initial C2 primitive cell
+An initial C2 primitive cell
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accesing-the-data-later">
+<h2>Accesing the data later<a class="headerlink" href="#accesing-the-data-later" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">node</span></code> attribute of the tracker is stored in AiiDA’s database. There are two ways to identify a <code class="docutils literal notranslate"><span class="pre">node</span></code>, the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">uuid</span></code>.
+The former is stable with a single installation of the database, if you export and import the data to a different database, <code class="docutils literal notranslate"><span class="pre">id</span></code> will change.
+The <code class="docutils literal notranslate"><span class="pre">uuid</span></code>, on the other hand, always remain the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">defect2</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defect2</span><span class="o">.</span><span class="n">uuid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+072c8955-d3ef-445d-8c7b-94c39efb246f
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can load the defect from the database again with, this works in a different python session as long as you have the correct <code class="docutils literal notranslate"><span class="pre">uuid</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">defect2_reloaded</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">orm</span><span class="o">.</span><span class="n">load_node</span><span class="p">(</span><span class="n">defect2</span><span class="o">.</span><span class="n">uuid</span><span class="p">))</span>
+<span class="n">defect2_reloaded</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.355, 5.355], [5.355, 0.0, 5.355], [5.355, 5.355, 0.0]], masses=...), &lt;StructureData: uuid: 072c8955-d3ef-445d-8c7b-94c39efb246f (pk: 14)&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tutorial.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../developer_guide/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Developer guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-operations-performed-on-ase-atoms">Tracking operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-provenance">Visualising provenance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcuts">Shortcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accesing-the-data-later">Accesing the data later</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022-2023, Bonan Zhu. All rights reserved.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

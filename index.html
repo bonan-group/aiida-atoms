@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
     <title>The aiida-atoms plugin for AiiDA &#8212; aiida-atoms v0.1.0a0</title>
   
   
@@ -30,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
   
@@ -42,6 +44,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -144,7 +147,7 @@
           
           
           
-          <a href="https://github.com/zhubonan/castepxbin" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+          <a href="https://github.com/zhubonan/aiida-atoms" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -156,7 +159,7 @@
           
           
           
-          <a href="https://pypi.org/project/castepxbin/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/castepxbin" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/aiida-atoms/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/aiida-atoms" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -172,11 +175,21 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="user_guide/index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_guide/get_started.html">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="user_guide/tutorial.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide/tracking-example.html">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide/index.html">Developer guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apidoc/aiida_atoms.html">API documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="apidocs/index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
 </ul>
 
@@ -221,7 +234,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/zhubonan/castepxbin" target="_blank"
+<a href="https://github.com/zhubonan/aiida-atoms" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -247,7 +260,7 @@
       
       
       
-      <li><a href="_sources/index.rst" target="_blank"
+      <li><a href="_sources/index.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -257,7 +270,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -353,7 +366,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="the-aiida-atoms-plugin-for-aiida">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-aiida-atoms-plugin-for-aiida">
 <h1>The aiida-atoms plugin for <a class="reference external" href="http://www.aiida.net">AiiDA</a><a class="headerlink" href="#the-aiida-atoms-plugin-for-aiida" title="Permalink to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">aiida-atoms</span></code> is available at <a class="github reference external" href="http://github.com/zhubonan/aiida-atoms">zhubonan/aiida-atoms</a></p>
 <div class="toctree-wrapper compound">
@@ -372,10 +385,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="developer_guide/index.html#pypi-release">PyPI release</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="apidoc/aiida_atoms.html">API documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="apidoc/aiida_atoms.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apidoc/aiida_atoms.html#module-aiida_atoms.tracker">aiida_atoms.tracker module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apidoc/aiida_atoms.html#module-aiida_atoms">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apidocs/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
@@ -393,16 +404,16 @@ for computational science</em>, Comp. Mat. Sci 111, 218-230 (2016);
 <a class="reference external" href="https://doi.org/10.1016/j.commatsci.2015.09.013">https://doi.org/10.1016/j.commatsci.2015.09.013</a>; <a class="reference external" href="http://www.aiida.net">http://www.aiida.net</a>.</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">aiida-atoms</span></code> is released under the MIT license.</p>
-<p>Please contact <a class="reference external" href="mailto:zhubonan&#37;&#52;&#48;outlook&#46;com">zhubonan<span>&#64;</span>outlook<span>&#46;</span>com</a> for information concerning <code class="docutils literal notranslate"><span class="pre">aiida-atoms</span></code> and the <a class="reference external" href="http://www.aiida.net/mailing-list/">AiiDA mailing list</a> for questions concerning <code class="docutils literal notranslate"><span class="pre">aiida</span></code>.</p>
-</div>
-<div class="section" id="indices-and-tables">
+<p>Please contact <a class="reference external" href="mailto:zhubonan&#37;&#52;&#48;outlook&#46;com">mailto:zhubonan<span>&#64;</span>outlook<span>&#46;</span>com</a> for information concerning <code class="docutils literal notranslate"><span class="pre">aiida-atoms</span></code> and the <a class="reference external" href="http://www.aiida.net/mailing-list/">AiiDA mailing list</a> for questions concerning <code class="docutils literal notranslate"><span class="pre">aiida</span></code>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
+</section>
 
 
                 </article>

@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
     <title>Getting started &#8212; aiida-atoms v0.1.0a0</title>
   
   
@@ -30,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
   
@@ -42,6 +44,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -145,7 +148,7 @@
           
           
           
-          <a href="https://github.com/zhubonan/castepxbin" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+          <a href="https://github.com/zhubonan/aiida-atoms" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
@@ -157,7 +160,7 @@
           
           
           
-          <a href="https://pypi.org/project/castepxbin/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/castepxbin" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/aiida-atoms/" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="https://img.shields.io/pypi/v/aiida-atoms" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -173,11 +176,21 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tutorial.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tracking-example.html">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/index.html">Developer guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apidoc/aiida_atoms.html">API documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../apidocs/index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://aiida.readthedocs.io">AiiDA Documentation</a></li>
 </ul>
 
@@ -222,7 +235,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/zhubonan/castepxbin" target="_blank"
+<a href="https://github.com/zhubonan/aiida-atoms" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -353,38 +366,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="getting-started">
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
-<p>This page should contain a short guide on what the plugin does and
-a short example on how to use the plugin.</p>
-<div class="section" id="installation">
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <p>Use the following commands to install the plugin:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zhubonan</span><span class="o">/</span><span class="n">aiida</span><span class="o">-</span><span class="n">atoms</span> <span class="o">.</span>
 <span class="n">cd</span> <span class="n">aiida</span><span class="o">-</span><span class="n">atoms</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>  <span class="c1"># also installs aiida, if missing (but not postgres)</span>
-<span class="c1">#pip install -e .[pre-commit,testing] # install extras for more features</span>
-<span class="n">verdi</span> <span class="n">quicksetup</span>  <span class="c1"># better to set up a new profile</span>
-<span class="n">verdi</span> <span class="n">plugin</span> <span class="nb">list</span> <span class="n">aiida</span><span class="o">.</span><span class="n">calculations</span>  <span class="c1"># should now show your calculation plugins</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="usage">
+</section>
+<section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h2>
-<p>A quick demo of how to submit a calculation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">verdi</span> <span class="n">daemon</span> <span class="n">start</span>         <span class="c1"># make sure the daemon is running</span>
-<span class="n">cd</span> <span class="n">examples</span>
-<span class="n">verdi</span> <span class="n">run</span> <span class="n">test_submit</span><span class="o">.</span><span class="n">py</span>        <span class="c1"># submit test calculation</span>
-<span class="n">verdi</span> <span class="n">calculation</span> <span class="nb">list</span> <span class="o">-</span><span class="n">a</span>  <span class="c1"># check status of calculation</span>
+<p>A quick demo of how to use the plugin:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiida_atoms</span> <span class="kn">import</span> <span class="n">AtomsTracker</span>
+<span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+<span class="kn">from</span> <span class="nn">aiida.orm</span> <span class="kn">import</span> <span class="n">load_profile</span>
+
+<span class="n">load_profile</span><span class="p">()</span>
+
+<span class="n">mgo</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;MgO&quot;</span><span class="p">,</span> <span class="s2">&quot;rocksalt&quot;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+
+<span class="c1"># Directing acting on Atoms object without tracking</span>
+<span class="n">mgo</span> <span class="o">=</span> <span class="n">mgo</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">mgo</span><span class="o">.</span><span class="n">translate</span><span class="p">((</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">mgo</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># With tracker</span>
+<span class="n">mgo</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;MgO&quot;</span><span class="p">,</span> <span class="s2">&quot;rocksalt&quot;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>
+<span class="n">mgo</span><span class="o">.</span><span class="n">node</span>  <span class="c1"># Underlying orm.StructureData object</span>
+
+<span class="n">mgo</span> <span class="o">=</span> <span class="n">mgo</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Create a new object</span>
+<span class="n">mgo</span><span class="o">.</span><span class="n">translate</span><span class="p">((</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">mgo</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># History of the operations are stored in the provenance graph</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">QueryBuilder</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">orm</span><span class="o">.</span><span class="n">Node</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">mgo</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">},</span> <span class="n">tag</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">orm</span><span class="o">.</span><span class="n">Node</span><span class="p">,</span> <span class="n">with_descendants</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+<span class="c1"># Show all ancestor nodes of the final structure</span>
+<span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>If you have already set up your own aiida_atoms code using
-<code class="docutils literal notranslate"><span class="pre">verdi</span> <span class="pre">code</span> <span class="pre">setup</span></code>, you may want to try the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span><span class="o">-</span><span class="n">submit</span>  <span class="c1"># uses aiida_atoms.cli</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
 
                 </article>
