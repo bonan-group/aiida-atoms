@@ -1,6 +1,9 @@
 # Tutorial
 
-```{toctree}
+Tutorials showing how to use this package:
 
-tracking-example.ipynb
+```{toctree}
+:maxdepth: 1
+
+tracking-example
 ```

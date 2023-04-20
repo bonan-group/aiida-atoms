@@ -45,6 +45,7 @@ pre-commit = [
 ]
 docs = [
     "sphinx",
+    "jupytext",
     "sphinx-autodoc2",
     "sphinx-copybutton",
     "myst-nb",

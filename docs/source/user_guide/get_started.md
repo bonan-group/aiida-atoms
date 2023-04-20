@@ -44,3 +44,5 @@ q.append(orm.Node, with_descendants='root')
 # Show all ancestor nodes of the final structure
 q.all()
 ```
+
+Make sure you checkout this [tutorial](tracking-example).
