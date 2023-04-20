@@ -185,8 +185,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/index.html">Developer guide</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../apidocs/index.html">API Reference</a><input checked class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.transformations.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.transformations</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apidocs/aiida_atoms/aiida_atoms.tracker.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aiida_atoms.tracker</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -405,7 +405,11 @@ Here, for demostration only, we use a temporay profile with <code class="docutil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profile&lt;uuid=&#39;1ee44284bf744be8a27a429a30d409ce&#39; name=&#39;myprofile&#39;&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.9/site-packages/aiida/manage/configuration/settings.py:59: UserWarning: Creating AiiDA configuration folder `/home/runner/.aiida`.
+  warnings.warn(f&#39;Creating AiiDA configuration folder `{path}`.&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profile&lt;uuid=&#39;44b6f83f261b43b2983caa11810fe76a&#39; name=&#39;myprofile&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -507,8 +511,8 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]]), &lt;StructureData: uuid: 88781837-1c09-4872-aa96-4693d8ba91ba (pk: 2)&gt;)
-AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...), &lt;StructureData: uuid: a65cace8-1cd8-4159-8d55-6703a00943ba (pk: 11)&gt;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]]), &lt;StructureData: uuid: a11e28d6-d31d-4534-b422-06c947f0a232 (pk: 2)&gt;)
+AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...), &lt;StructureData: uuid: d7c179cf-ead3-4c8d-ab92-4d11f5454b47 (pk: 11)&gt;)
 </pre></div>
 </div>
 </div>
@@ -524,7 +528,7 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]])
-&lt;StructureData: uuid: 88781837-1c09-4872-aa96-4693d8ba91ba (pk: 2)&gt;
+&lt;StructureData: uuid: a11e28d6-d31d-4534-b422-06c947f0a232 (pk: 2)&gt;
 </pre></div>
 </div>
 </div>
@@ -539,7 +543,7 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...)
-&lt;StructureData: uuid: a65cace8-1cd8-4159-8d55-6703a00943ba (pk: 11)&gt;
+&lt;StructureData: uuid: d7c179cf-ead3-4c8d-ab92-4d11f5454b47 (pk: 11)&gt;
 </pre></div>
 </div>
 </div>
@@ -553,7 +557,7 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinkTriple(node=&lt;CalcFunctionNode: uuid: a4d78b1f-239e-4698-8b91-6caadaf92acb (pk: 10) (ase.atoms.Atoms.rattle)&gt;, link_type=&lt;LinkType.CREATE: &#39;create&#39;&gt;, link_label=&#39;result&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinkTriple(node=&lt;CalcFunctionNode: uuid: 7d02a1c7-053e-4290-9b71-7f5311b71512 (pk: 10) (ase.atoms.Atoms.rattle)&gt;, link_type=&lt;LinkType.CREATE: &#39;create&#39;&gt;, link_label=&#39;result&#39;)
 </pre></div>
 </div>
 </div>
@@ -568,9 +572,9 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;Float: uuid: 7ef8e62a-b00f-45b4-a88f-0ca3599fa759 (pk: 8) value: 0.05&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;stdev&#39;),
- LinkTriple(node=&lt;Int: uuid: e5f7c3bf-f617-42c7-ace7-220d83735414 (pk: 9) value: 11&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;seed&#39;),
- LinkTriple(node=&lt;StructureData: uuid: 6eb278d5-15d1-4a70-8666-4486e6deb746 (pk: 7)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;Float: uuid: 21bdebf9-3dee-49eb-8844-50ad72aa050c (pk: 8) value: 0.05&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;stdev&#39;),
+ LinkTriple(node=&lt;Int: uuid: bea89c3a-c57f-4b21-94e2-15e7a82dd3b1 (pk: 9) value: 11&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;seed&#39;),
+ LinkTriple(node=&lt;StructureData: uuid: 36d6c981-767e-47df-831c-f07b935fa30b (pk: 7)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
 </pre></div>
 </div>
 </div>
@@ -595,7 +599,7 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fe8f12cfaac049353f60b4585489d8c62ecd6a3148dcdb13928a63ff69d7d521.svg" src="../_images/fe8f12cfaac049353f60b4585489d8c62ecd6a3148dcdb13928a63ff69d7d521.svg" /></div>
+<img alt="../_images/0221926d8590fb7342d801578736f11c9031bd2ee3281086df5338f26aa99f31.svg" src="../_images/0221926d8590fb7342d801578736f11c9031bd2ee3281086df5338f26aa99f31.svg" /></div>
 </div>
 <p>Great, we now have a full history of how our defect supercell is created.<br />
 <code class="docutils literal notranslate"><span class="pre">note</span></code>{The links are labeled with the names of the keyword arguments, but the positional arguments are labeld with <em>arg_00</em>.}</p>
@@ -639,7 +643,7 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ca1b24522850c5d9b04af782af21b95a24670569f62cb598de222ecd0eb6dc65.svg" src="../_images/ca1b24522850c5d9b04af782af21b95a24670569f62cb598de222ecd0eb6dc65.svg" /></div>
+<img alt="../_images/ee059b6fe91712dd0c005753e4fae4a32bb0dd4d8c41fddd840b4073a54023e8.svg" src="../_images/ee059b6fe91712dd0c005753e4fae4a32bb0dd4d8c41fddd840b4073a54023e8.svg" /></div>
 </div>
 </section>
 <section id="shortcuts">
@@ -652,7 +656,7 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: c12c248f-b51c-4604-8c74-2e589ab90cbd (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: 0c977398-20c5-4c93-9995-9c320fa81fda (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
 </pre></div>
 </div>
 </div>
@@ -665,7 +669,7 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: c12c248f-b51c-4604-8c74-2e589ab90cbd (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: 0c977398-20c5-4c93-9995-9c320fa81fda (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
 </pre></div>
 </div>
 </div>
@@ -719,7 +723,7 @@ The <code class="docutils literal notranslate"><span class="pre">uuid</span></co
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
-072c8955-d3ef-445d-8c7b-94c39efb246f
+3a24fbbf-06fa-46ce-a2e0-bf88967ea688
 </pre></div>
 </div>
 </div>
@@ -733,7 +737,7 @@ The <code class="docutils literal notranslate"><span class="pre">uuid</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.355, 5.355], [5.355, 0.0, 5.355], [5.355, 5.355, 0.0]], masses=...), &lt;StructureData: uuid: 072c8955-d3ef-445d-8c7b-94c39efb246f (pk: 14)&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.355, 5.355], [5.355, 0.0, 5.355], [5.355, 5.355, 0.0]], masses=...), &lt;StructureData: uuid: 3a24fbbf-06fa-46ce-a2e0-bf88967ea688 (pk: 14)&gt;)
 </pre></div>
 </div>
 </div>

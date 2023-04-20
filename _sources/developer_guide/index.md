@@ -80,15 +80,6 @@ Or consider using [pre-commit.ci](https://pre-commit.ci/).
 
 Check the result by opening `build/html/index.html` in your browser.
 
-## Publishing the documentation
-
-Once you're happy with your documentation, it's easy to host it online on [ReadTheDocs]:
-
-> 1. Create an account on [ReadTheDocs]
-> 2. Import your `aiida-atoms` repository (preferably using `aiida-atoms` as the project name)
-
-The documentation is now available at [aiida-atoms.readthedocs.io](http://aiida-atoms.readthedocs.io/).
-
 ## PyPI release
 
 Your plugin is ready to be uploaded to the [Python Package Index](https://pypi.org/).

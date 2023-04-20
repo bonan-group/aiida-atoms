@@ -13,8 +13,8 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   aiida_atoms.tracker
    aiida_atoms.transformations
+   aiida_atoms.tracker
 
 Package Contents
 ----------------
