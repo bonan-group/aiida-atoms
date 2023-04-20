@@ -7,7 +7,7 @@
 
 user_guide/index
 developer_guide/index
-API documentation <apidoc/aiida_atoms>
+apidocs/index
 AiiDA Documentation <https://aiida.readthedocs.io>
 ```
 

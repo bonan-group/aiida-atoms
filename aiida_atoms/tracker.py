@@ -133,7 +133,7 @@ class AtomsTracker:  # pylint: disable=too-few-public-methods
 
     def __init__(
         self,
-        obj: Union[Atoms, orm.StructureData],
+        obj,
         atoms: Union[Atoms, None] = None,
         track=True,
     ):
@@ -141,9 +141,12 @@ class AtomsTracker:  # pylint: disable=too-few-public-methods
         if isinstance(obj, Atoms):
             self.atoms = obj
             self.node = orm.StructureData(ase=obj)
+        elif isinstance(obj, AtomsTracker):
+            self.node = obj.node
+            self.atoms = self.node.get_ase()
         else:
             self.node = obj
-            self.atoms = obj.get_ase() if atoms is None else atoms
+            self.atoms = self.node.get_ase() if atoms is None else atoms
 
         self.track_provenance = track
 

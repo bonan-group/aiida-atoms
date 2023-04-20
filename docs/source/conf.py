@@ -33,19 +33,18 @@ load_documentation_profile()
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
     "sphinx.ext.mathjax",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
     "sphinxcontrib.contentui",
     "aiida.sphinxext",
-    "myst_parser",
+    #    "myst_parser",
+    "myst_nb",
     "autodoc2",
     "sphinx_copybutton",
 ]
 
 myst_enable_extensions = [
-    "attrs_inline",
     "colon_fence",
     "deflist",
     "dollarmath",
@@ -61,13 +60,13 @@ myst_enable_extensions = [
 ]
 
 autodoc2_packages = [
-    "../aiida_atoms",
+    "../../aiida_atoms",
 ]
 
-intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "aiida": ("https://aiida.readthedocs.io/projects/aiida-core/en/latest", None),
-}
+# intersphinx_mapping = {
+#    "python": ("https://docs.python.org/3", None),
+#    "aiida": ("https://aiida.readthedocs.io/projects/aiida-core/en/latest", None),
+# }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

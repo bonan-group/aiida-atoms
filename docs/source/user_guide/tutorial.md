@@ -1,17 +1,7 @@
 # Tutorial
 
-This page can contain a simple tutorial for your code.
+```{toctree}
 
-## What we want to achieve
+../../../examples/tracking-example.ipynb
 
-### Step 1
-
-Some text
-
-### Step 2
-
-Some other text
-
-## The final result
-
-Some text
+```
