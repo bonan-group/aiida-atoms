@@ -35,6 +35,6 @@ API
 
 .. py:data:: __version__
    :canonical: aiida_atoms.__version__
-   :value: '0.1.0a0'
+   :value: '0.1.0'
 
    .. autodoc2-docstring:: aiida_atoms.__version__

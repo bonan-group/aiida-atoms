@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Using AtomsTracker &#8212; aiida-atoms v0.1.0a0</title>
+    <title>Using AtomsTracker &#8212; aiida-atoms v0.1.0</title>
   
   
   
@@ -51,7 +51,7 @@
     <script src="../_static/contentui.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/tracking-example';</script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within aiida-atoms v0.1.0a0"
+          title="Search within aiida-atoms v0.1.0"
           href="../_static/opensearch.xml"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -177,7 +177,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">User guide</a><input checked class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="get_started.html">Getting started</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="tutorial.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Using AtomsTracker</a></li>
 </ul>
 </li>
 </ul>
@@ -261,7 +261,7 @@
       
       
       
-      <li><a href="../_sources/user_guide/tracking-example.ipynb" target="_blank"
+      <li><a href="../_sources/user_guide/tracking-example.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -271,7 +271,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -356,7 +356,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-operations-performed-on-ase-atoms">Tracking operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-provenance">Visualising provenance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcuts">Shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accesing-the-data-later">Accesing the data later</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data-later">Using the data later</a></li>
 </ul>
             </nav>
         </div>
@@ -369,9 +369,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="using-atomstracker">
-<h1>Using <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code><a class="headerlink" href="#using-atomstracker" title="Permalink to this heading">#</a></h1>
+<span id="tutorial-atomstracker"></span><h1>Using AtomsTracker<a class="headerlink" href="#using-atomstracker" title="Permalink to this heading">#</a></h1>
 <p>Here we show how to use <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> to automatically record operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code></p>
-<p>Installing AiiDA takes a few extra steps and require setting up an database normally (see <a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html">here</a>).<br />
+<p>Installing AiiDA takes a few extra steps and require setting up an database normally (see <a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html">here</a>).
 Here, for demostration only, we use a temporay profile with <code class="docutils literal notranslate"><span class="pre">SqliteTempBackend</span></code>.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -409,7 +409,7 @@ Here, for demostration only, we use a temporay profile with <code class="docutil
   warnings.warn(f&#39;Creating AiiDA configuration folder `{path}`.&#39;)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profile&lt;uuid=&#39;44b6f83f261b43b2983caa11810fe76a&#39; name=&#39;myprofile&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profile&lt;uuid=&#39;201b825def3048ad99985de2afd008ea&#39; name=&#39;myprofile&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -426,7 +426,8 @@ Here, for demostration only, we use a temporay profile with <code class="docutil
 <p>The <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object models a atomic structure can be used in various ways. It is the centre piece to the <code class="docutils literal notranslate"><span class="pre">ase</span></code> ecosystem and used for constructing structure, data analysis and also calculations themselves.
 Here, we focus the first use case - using <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> for constructing input structures used in various materials modelling workflows.
 A common pattern is to start from a bulk structure, constructed manually or loaded from a online database (such as ICSD), and perform certain operations before it is used as inputs for first-principles calculations.</p>
-<p>In this example, we start with a carbon in the diamond structure to create a defect supercell:</p>
+<p>In this example, we start with a bulk diamond structure and create defect supercell.
+To load the diamond structure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
@@ -434,7 +435,7 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 </div>
 </div>
-<p>create a supercell can be done with <code class="docutils literal notranslate"><span class="pre">.repeat</span></code></p>
+<p>Creating a supercell can be done with the <code class="docutils literal notranslate"><span class="pre">.repeat</span></code> method of a <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supercell</span> <span class="o">=</span> <span class="n">c2</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -442,7 +443,7 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 </div>
 </div>
-<p>note that <code class="docutils literal notranslate"><span class="pre">.repeat</span></code> is an out of place operation - a new <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object is created</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">.repeat</span></code> is an out-of0place operation, e.g. a new <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object is created</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">supercell</span><span class="p">)</span>
@@ -455,7 +456,7 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 </div>
 </div>
-<p>Let’s remove an atom from it:</p>
+<p>A vacancy can be created by removing a single atom</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supercell</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -469,7 +470,7 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 </div>
 </div>
-<p>Now our supercell has only 53 atoms, we write it to the disk</p>
+<p>Now our supercell has only 53 atoms, we write it to the disk in the <a class="reference external" href="https://www.vasp.at/wiki/index.php/POSCAR">POSCAR</a> format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supercell</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;C_Vac_c.vasp&quot;</span><span class="p">)</span>
@@ -488,8 +489,14 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 <section id="tracking-operations-performed-on-ase-atoms">
 <h2>Tracking operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code><a class="headerlink" href="#tracking-operations-performed-on-ase-atoms" title="Permalink to this heading">#</a></h2>
-<p>However, if the file <code class="docutils literal notranslate"><span class="pre">C_Vac_c.vasp</span></code> itself does not contain any history about how it was made, e.g  which structure was used as the bulk and which atom was remove.</p>
-<p>Let’s put the <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> into use:</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">C_Vac_c.vasp</span></code> itself does not contain any history about how it was made, e.g  which structure was used as the bulk and which atom was removed, especially with more complex structures.</p>
+<p>Here comes the <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> to rescue! As the name suggests, it tracks the underlying <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object as long as the methods called as those of the tracked object.</p>
+<div class="dropdown admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Implementation</p>
+<p>The tracker is implemented using the <a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/calculations/concepts.html?#calculation-functions">&#64;calcfunction</a> api in AiiDA core.
+The actual method calls <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> are done within a function wrapped by the <code class="docutils literal notranslate"><span class="pre">&#64;calcfunction</span></code> decorator.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
@@ -511,8 +518,8 @@ A common pattern is to start from a bulk structure, constructed manually or load
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]]), &lt;StructureData: uuid: a11e28d6-d31d-4534-b422-06c947f0a232 (pk: 2)&gt;)
-AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...), &lt;StructureData: uuid: d7c179cf-ead3-4c8d-ab92-4d11f5454b47 (pk: 11)&gt;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]]), &lt;StructureData: uuid: 658c2143-feae-4884-8aa5-1e71e6d2cc05 (pk: 2)&gt;)
+AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...), &lt;StructureData: uuid: 897d2125-e5e7-4862-b18d-c08a992d55bc (pk: 11)&gt;)
 </pre></div>
 </div>
 </div>
@@ -528,7 +535,7 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C2&#39;, pbc=True, cell=[[0.0, 1.785, 1.785], [1.785, 0.0, 1.785], [1.785, 1.785, 0.0]])
-&lt;StructureData: uuid: a11e28d6-d31d-4534-b422-06c947f0a232 (pk: 2)&gt;
+&lt;StructureData: uuid: 658c2143-feae-4884-8aa5-1e71e6d2cc05 (pk: 2)&gt;
 </pre></div>
 </div>
 </div>
@@ -543,12 +550,16 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.3549999999999995, 5.3549999999999995], [5.3549999999999995, 0.0, 5.3549999999999995], [5.3549999999999995, 5.3549999999999995, 0.0]], masses=...)
-&lt;StructureData: uuid: d7c179cf-ead3-4c8d-ab92-4d11f5454b47 (pk: 11)&gt;
+&lt;StructureData: uuid: 897d2125-e5e7-4862-b18d-c08a992d55bc (pk: 11)&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now the <code class="docutils literal notranslate"><span class="pre">supercell</span></code> includes the history show how it was made</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Do not call the method of the underlying <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object directly - this will cause the tracker to lose track of the atom, resulting in incorrect provenance.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_pop</span> <span class="o">=</span> <span class="n">defect_cell</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
@@ -557,12 +568,12 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinkTriple(node=&lt;CalcFunctionNode: uuid: 7d02a1c7-053e-4290-9b71-7f5311b71512 (pk: 10) (ase.atoms.Atoms.rattle)&gt;, link_type=&lt;LinkType.CREATE: &#39;create&#39;&gt;, link_label=&#39;result&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinkTriple(node=&lt;CalcFunctionNode: uuid: 725dd96f-909d-47b5-bcae-0b1e7fc986a2 (pk: 10) (ase.atoms.Atoms.rattle)&gt;, link_type=&lt;LinkType.CREATE: &#39;create&#39;&gt;, link_label=&#39;result&#39;)
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">LinkTriple</span></code> is an object to represent a link between two nodes. Here, one is the output strucutre <code class="docutils literal notranslate"><span class="pre">supercell.node</span></code> and the other is a <code class="docutils literal notranslate"><span class="pre">Calculation</span></code> that create the output.</p>
+<p>The <a class="reference external" href="https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/query.html?incoming-and-outgoing-links"><code class="docutils literal notranslate"><span class="pre">LinkTriple</span></code></a> object is an object to represent a link between two nodes. Here, one is the output strucutre <code class="docutils literal notranslate"><span class="pre">supercell.node</span></code> and the other is a <code class="docutils literal notranslate"><span class="pre">Calculation</span></code> that create the output.</p>
 <p>We can also check what are the inputs used in this calculation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,9 +583,9 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;Float: uuid: 21bdebf9-3dee-49eb-8844-50ad72aa050c (pk: 8) value: 0.05&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;stdev&#39;),
- LinkTriple(node=&lt;Int: uuid: bea89c3a-c57f-4b21-94e2-15e7a82dd3b1 (pk: 9) value: 11&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;seed&#39;),
- LinkTriple(node=&lt;StructureData: uuid: 36d6c981-767e-47df-831c-f07b935fa30b (pk: 7)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;Float: uuid: 31f5b358-3534-406c-91e9-459d91e87d52 (pk: 8) value: 0.05&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;stdev&#39;),
+ LinkTriple(node=&lt;Int: uuid: 3362ac33-32c6-4013-b27e-5d838f5335b2 (pk: 9) value: 11&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;seed&#39;),
+ LinkTriple(node=&lt;StructureData: uuid: 157c663f-81dc-4a82-8e6b-c8ced8a94561 (pk: 7)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
 </pre></div>
 </div>
 </div>
@@ -582,7 +593,7 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </section>
 <section id="visualising-provenance">
 <h2>Visualising provenance<a class="headerlink" href="#visualising-provenance" title="Permalink to this heading">#</a></h2>
-<p>Let’s visualise the provenance.</p>
+<p>AiiDA provides some tools to visualise the provenance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiida.tools.visualization</span> <span class="kn">import</span> <span class="n">Graph</span>
@@ -599,12 +610,18 @@ AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.35499999999999
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0221926d8590fb7342d801578736f11c9031bd2ee3281086df5338f26aa99f31.svg" src="../_images/0221926d8590fb7342d801578736f11c9031bd2ee3281086df5338f26aa99f31.svg" /></div>
+<img alt="../_images/17f76016596d06a0227b58337546f0920d46a96ab628ab7795dce310cc763513.svg" src="../_images/17f76016596d06a0227b58337546f0920d46a96ab628ab7795dce310cc763513.svg" /></div>
 </div>
-<p>Great, we now have a full history of how our defect supercell is created.<br />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may will need to install <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> to be able to render the graph in the notebook.</p>
+<p>This can be down using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">graphviz</span></code>.</p>
+</div>
+<p>Great, we now have a full history of how our defect supercell is created.
 <code class="docutils literal notranslate"><span class="pre">note</span></code>{The links are labeled with the names of the keyword arguments, but the positional arguments are labeld with <em>arg_00</em>.}</p>
-<p>Now let’ts create more defect structures, note the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation does an inplace mutation of the <code class="docutils literal notranslate"><span class="pre">supercell</span></code>.
-Since the intermeidate resutls are all store, we can rewind it back without problem.</p>
+<p>Now let’ts create a few more defect structures, note the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation does an in-place mutation of the <code class="docutils literal notranslate"><span class="pre">supercell</span></code>, hence we have lost access to our pristine supercell.
+With the tracker, all intermediate results are stored in the database.
+This allow us to load the pristine supercell back without problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perfect_supercell</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">orm</span><span class="o">.</span><span class="n">load_node</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
@@ -619,9 +636,8 @@ Since the intermeidate resutls are all store, we can rewind it back without prob
 </div>
 </div>
 </div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">defect2</span></code> is returned is actually the same <code class="docutils literal notranslate"><span class="pre">atoms</span></code> - this is different from the <code class="docutils literal notranslate"><span class="pre">ase.Atoms.pop</span></code> which returns the poped atom.
-The tracker has this behaviour to allow operations to be chained in a single line.
-But for out of place operation, such as <code class="docutils literal notranslate"><span class="pre">repeat</span></code> or <code class="docutils literal notranslate"><span class="pre">sort</span></code> this the returned tracker will be a new object.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">.pop</span></code> returns an <code class="docutils literal notranslate"><span class="pre">ase.Atom</span></code> object, and the tracker retains this behaviour.</p>
+<p>For out-of-place operations, such as <code class="docutils literal notranslate"><span class="pre">repeat</span></code> or <code class="docutils literal notranslate"><span class="pre">sort</span></code>, returns a tracker tracking the new <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code> object created.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_defect2</span> <span class="o">=</span> <span class="n">defect2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -635,7 +651,7 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 </div>
-<p>Another useful information is to check what are the descendants of a root node.</p>
+<p>We can also check what the descendants of a given node are, as we used an bulk diamond structure as the starting point, all structures created are descendants of it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view_descendants</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
@@ -643,12 +659,13 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ee059b6fe91712dd0c005753e4fae4a32bb0dd4d8c41fddd840b4073a54023e8.svg" src="../_images/ee059b6fe91712dd0c005753e4fae4a32bb0dd4d8c41fddd840b4073a54023e8.svg" /></div>
+<img alt="../_images/dfece37e8792baf291af14e7582551f45e988eeb45077bbceea943dafb6c6ae2.svg" src="../_images/dfece37e8792baf291af14e7582551f45e988eeb45077bbceea943dafb6c6ae2.svg" /></div>
 </div>
 </section>
 <section id="shortcuts">
 <h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this heading">#</a></h2>
-<p>Attributes of the underlying node can access via the <code class="docutils literal notranslate"><span class="pre">.base</span></code> accessor, it is equivalent to <code class="docutils literal notranslate"><span class="pre">.node.base</span></code>, for example</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AtomsTracker</span></code> also provides some shortcuts to the attributes of the underlying <code class="docutils literal notranslate"><span class="pre">StructureData</span></code> object.
+The <code class="docutils literal notranslate"><span class="pre">AtomsTracker.base</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">AtomsTracker.node.base</span></code>, for example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -656,12 +673,12 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: 0c977398-20c5-4c93-9995-9c320fa81fda (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: 8b3c2a55-f701-42b1-9ba0-13254f66261b (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
 </pre></div>
 </div>
 </div>
 </div>
-<p>is equivalent to:</p>
+<p>is the same as</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">get_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -669,51 +686,41 @@ But for out of place operation, such as <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: 0c977398-20c5-4c93-9995-9c320fa81fda (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LinkTriple(node=&lt;CalcFunctionNode: uuid: 8b3c2a55-f701-42b1-9ba0-13254f66261b (pk: 3) (ase.atoms.Atoms.repeat)&gt;, link_type=&lt;LinkType.INPUT_CALC: &#39;input_calc&#39;&gt;, link_label=&#39;kwargs_0&#39;)]
 </pre></div>
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">label</span></code> and <code class="docutils literal notranslate"><span class="pre">descriptions</span></code> of the underlying <code class="docutils literal notranslate"><span class="pre">node</span></code> can also be accessed this way</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">label</span></code> and <code class="docutils literal notranslate"><span class="pre">descriptions</span></code> of the underlying <code class="docutils literal notranslate"><span class="pre">node</span></code> also have shortcut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">label</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C2 Primitive&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;An initial C2 primitive cell&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tracker</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;My defect node&quot;</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;An initial C2 primitive cell&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tracker</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>An initial C2 primitive cell
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My defect node
 An initial C2 primitive cell
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="accesing-the-data-later">
-<h2>Accesing the data later<a class="headerlink" href="#accesing-the-data-later" title="Permalink to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">node</span></code> attribute of the tracker is stored in AiiDA’s database. There are two ways to identify a <code class="docutils literal notranslate"><span class="pre">node</span></code>, the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">uuid</span></code>.
-The former is stable with a single installation of the database, if you export and import the data to a different database, <code class="docutils literal notranslate"><span class="pre">id</span></code> will change.
-The <code class="docutils literal notranslate"><span class="pre">uuid</span></code>, on the other hand, always remain the same.</p>
+<section id="using-the-data-later">
+<h2>Using the data later<a class="headerlink" href="#using-the-data-later" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">node</span></code> attribute of the tracker is stored in AiiDA’s database. There are two ways to identify a <code class="docutils literal notranslate"><span class="pre">node</span></code>:</p>
+<dl class="simple myst">
+<dt>id</dt><dd><p>An integer that is unique within the database, but may change is the data is exported and imported to other database afterwards.</p>
+</dd>
+<dt>uuid</dt><dd><p>A long string that is unique and will remain constant when imported/exported.</p>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">uuid</span></code> is the preferred way of referring to the data as it is always stable.
+Just like <code class="docutils literal notranslate"><span class="pre">label</span></code> and <code class="docutils literal notranslate"><span class="pre">description</span></code>, there are also shortcuts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">defect2</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
@@ -723,7 +730,7 @@ The <code class="docutils literal notranslate"><span class="pre">uuid</span></co
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
-3a24fbbf-06fa-46ce-a2e0-bf88967ea688
+50923605-9626-4a21-a049-3b6964157977
 </pre></div>
 </div>
 </div>
@@ -737,10 +744,18 @@ The <code class="docutils literal notranslate"><span class="pre">uuid</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.355, 5.355], [5.355, 0.0, 5.355], [5.355, 5.355, 0.0]], masses=...), &lt;StructureData: uuid: 3a24fbbf-06fa-46ce-a2e0-bf88967ea688 (pk: 14)&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AtomsTracker(Atoms(symbols=&#39;C53&#39;, pbc=True, cell=[[0.0, 5.355, 5.355], [5.355, 0.0, 5.355], [5.355, 5.355, 0.0]], masses=...), &lt;StructureData: uuid: 50923605-9626-4a21-a049-3b6964157977 (pk: 14)&gt;)
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One can also load data with first few characters of the <code class="docutils literal notranslate"><span class="pre">uuid</span></code> or the label of the node, as long as the value is unique in the database.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">defect2_reloaded</span> <span class="o">=</span> <span class="n">AtomsTracker</span><span class="p">(</span><span class="n">orm</span><span class="o">.</span><span class="n">load_node</span><span class="p">(</span><span class="s2">&quot;My defect node&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>should also work.</p>
 </div>
 </section>
 </section>
@@ -796,7 +811,7 @@ The <code class="docutils literal notranslate"><span class="pre">uuid</span></co
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-operations-performed-on-ase-atoms">Tracking operations performed on <code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-provenance">Visualising provenance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcuts">Shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accesing-the-data-later">Accesing the data later</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data-later">Using the data later</a></li>
 </ul>
   </nav></div>
 
