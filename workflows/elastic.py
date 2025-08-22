@@ -7,12 +7,10 @@ This module implements a workflow to calculate elastic constants, including:
     - Elastic tensor composition and validation
 """
 
-
-from aiida_vasp.utils.extended_dicts import update_nested_dict, update_nested_dict_node
-from aiida_vasp.utils.workchains import compose_exit_code
 from aiida_vasp.workchains.v2.relax import VaspRelaxWorkChain
 import ase
-from ase.units import GPa
+
+# from ase.units import GPa
 import numpy as np
 from pymatgen.analysis.elasticity import (
     DeformedStructureSet,
@@ -20,16 +18,12 @@ from pymatgen.analysis.elasticity import (
     Strain,
     Stress,
 )
-from pymatgen.io.ase import AseAtomsAdaptor
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 import spglib
 
 from aiida import orm
-from aiida.engine import ToContext, WorkChain, append_, calcfunction, if_, while_
-from aiida.orm.nodes.data.base import to_aiida_type
-from aiida.plugins import WorkflowFactory
+from aiida.engine import ToContext, WorkChain, calcfunction
 
-from .common import OVERRIDE_NAMESPACE, site_magnetization_to_magmom
 from .mixins import WithBuilderUpdater
 
 
@@ -50,7 +44,7 @@ class VaspElasticWorkChain(WorkChain, WithBuilderUpdater):
             "elastic_settings",
             valid_type=orm.Dict,
             required=False,
-            help="Settings for the elastic tensor calculation, valid options are: use_symmetry, symprec",
+            help="Settings of elastic tensor calculation, valid options: use_symmetry, symprec",
         )
         # 基于VaspRelaxWorkChain的设置输入
         spec.expose_inputs(VaspRelaxWorkChain, "relax")
@@ -103,7 +97,11 @@ class VaspElasticWorkChain(WorkChain, WithBuilderUpdater):
         pdict["incar"].pop("nsw", None)
         if pdict != self.ctx.relax_inputs.vasp.parameters.get_dict():
             self.logger.warn(
-                "The VASP parameters have been modified to remove `ibrion`, `isif`, and `nsw` settings for the elastic tensor calculation."
+                """
+                             The VASP parameters have been modified to remove `ibrion`,isif`,
+                             and `nsw` settings for the elastic tensor calculation.
+                             Please ensure that the modified parameters are suitable for your calculation.
+                             """
             )
             self.ctx.relax_inputs.vasp.parameters = orm.Dict(dict=pdict)
 
@@ -160,7 +158,8 @@ class VaspElasticWorkChain(WorkChain, WithBuilderUpdater):
             self.ctx.reference_structure = orm.StructureData(ase=primitive_atoms)
         else:
             raise ValueError(
-                f'Unknown primitive type: {primitive_type}. Supported types are "conventional" and "primitive".'
+                f"Unknown primitive type: {primitive_type}. "
+                f'Supported types are "conventional" and "primitive".'
             )
         self.out("primitive_structure", self.ctx.reference_structure)
 
@@ -193,7 +192,7 @@ class VaspElasticWorkChain(WorkChain, WithBuilderUpdater):
                 relax_settings["label"] = f"relax_deformed_{key}"
                 inputs.relax_settings = orm.Dict(dict=relax_settings)
                 running = self.submit(self._base_workchain, **inputs)
-                launched_calculations[f"workchain_deformed_" + key] = running
+                launched_calculations["workchain_deformed_" + key] = running
             if key.startswith("deformation_strains"):
                 self.ctx.deformations = value  # 为orm.array数据类型
         return ToContext(**launched_calculations)
@@ -231,6 +230,14 @@ def generate_deformed_structures(
     shear_strains: orm.List,
     symmetry: bool = True,
 ):
+    """
+    generate deformed structures by pymatgen's DeformedStructureSet.
+    Args:
+        structure (orm.StructureData): The input structure to be deformed.
+        normal_strains (orm.List, optional): List of normal strains to apply. Defaults to None.
+        shear_strains (orm.List, optional): List of shear strains to apply. Defaults to None.
+        symmetry (bool, optional): Whether to use symmetry in the deformation. Defaults to True.
+    """
     if normal_strains is None:
         normal_strains = (-0.01, -0.005, 0.005, 0.01)
     else:
@@ -292,7 +299,7 @@ def get_elastic_tensor(deform_datas: orm.ArrayData, **kwargs):
     try:
         elastic_tensor = ElasticTensor.from_diff_fit(strains, stresses)
     except Exception as e:
-        raise ValueError(f"Failed to compose the elastic tensor: {e}")
+        raise ValueError(f"Failed to compose the elastic tensor: {e}") from e
 
     elastic_array = orm.ArrayData()
     elastic_array.set_array("elastic_tensor", elastic_tensor.voigt)

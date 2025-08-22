@@ -24,8 +24,11 @@ requires-python = ">=3.7"
 
 dependencies = [
     "aiida-core>=2.0,<3",
-    "ase>=3,<4", "numpy"
-
+    "ase>=3,<4",
+    "numpy",
+    "aiida_vasp",
+    "pymatgen",
+    "spglib"
 ]
 
 [project.urls]
