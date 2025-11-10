@@ -28,7 +28,8 @@ dependencies = [
     "numpy",
     "aiida_vasp",
     "pymatgen",
-    "spglib"
+    "spglib",
+    "aiida-workgraph"
 ]
 
 [project.urls]
@@ -59,7 +60,6 @@ docs = [
     "sphinxcontrib-details-directive",
     "markupsafe<2.1"
 ]
-
 [project.entry-points."aiida.workflows"]
 "aa.vasp.elastic" = "aiida_atoms.workflows.elastic:VaspElasticWorkChain"
 
