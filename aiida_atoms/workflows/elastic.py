@@ -24,10 +24,8 @@ import spglib
 from aiida import orm
 from aiida.engine import ToContext, WorkChain, calcfunction
 
-from .mixins import WithBuilderUpdater
 
-
-class VaspElasticWorkChain(WorkChain, WithBuilderUpdater):
+class VaspElasticWorkChain(WorkChain):
     """
     AiiDA WorkChain for calculating the elastic tensor of a material using VASP.
     This workchain performs a full relaxation of the input structure, standardizes it,
@@ -214,7 +212,7 @@ class VaspElasticWorkChain(WorkChain, WithBuilderUpdater):
         )
         # Check  the deformations data and miscs data
         self.report(
-            f'deform_datas: {self.ctx.deformations.get_array("deformation_strains")}'
+            f"deform_datas: {self.ctx.deformations.get_array('deformation_strains')}"
         )
         self.report(f"miscs: {miscs}")
         self.out(

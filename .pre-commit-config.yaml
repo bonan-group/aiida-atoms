@@ -1,40 +1,19 @@
 # Install pre-commit hooks via:
 # pre-commit install
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.4.0
-  hooks:
-    - id: end-of-file-fixer
-    - id: mixed-line-ending
-    - id: trailing-whitespace
-    - id: check-json
-
-- repo: https://github.com/asottile/pyupgrade
-  rev: v3.3.1
-  hooks:
-  - id: pyupgrade
-    args: ["--py37-plus"]
-
-- repo: https://github.com/PyCQA/isort
-  rev: 5.12.0
-  hooks:
-    - id: isort
-
-- repo: https://github.com/psf/black
-  rev: 22.12.0
-  hooks:
-    - id: black
-
-- repo: local
-  hooks:
-  - id: pylint
-    language: system
-    types: [file, python]
-    name: pylint
-    description: "This hook runs the pylint static code analyzer"
-    exclude: &exclude_files >
-      (?x)^(
-          docs/.*|
-          tests/.*|
-      )$
-    entry: pylint
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+      - id: check-json
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.14.3
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [ "--fix", "--show-fixes" ]
+      # Run the formatter.
+      - id: ruff-format

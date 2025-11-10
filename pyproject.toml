@@ -60,6 +60,9 @@ docs = [
     "markupsafe<2.1"
 ]
 
+[project.entry-points."aiida.workflows"]
+"aa.vasp.elastic" = "aiida_atoms.workflows.elastic:VaspElasticWorkChain"
+
 [tool.flit.module]
 name = "aiida_atoms"
 
@@ -98,12 +101,12 @@ known_aiida = ['aiida']
 [tool.tox]
 legacy_tox_ini = """
 [tox]
-envlist = py38
+envlist = py310
 
 [testenv]
 usedevelop=True
 
-[testenv:py{37,38,39,310}]
+[testenv:py{310,311,312}]
 description = Run the test suite against a python version
 extras = testing
 commands = pytest {posargs}

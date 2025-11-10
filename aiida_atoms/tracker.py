@@ -1,6 +1,7 @@
 """
 Track changes of an atom
 """
+
 from functools import wraps
 from typing import Union
 import warnings
