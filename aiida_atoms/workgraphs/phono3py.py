@@ -141,6 +141,9 @@ def launch_second_third_order_calculations(
     Launch second and third order calculations
     NOTE: you may want to define your own input settings for VASP calculations here
     """
+    # Deserialize if needed
+    if hasattr(kind, "value"):
+        kind = kind.value
 
     def get_inputs_second_order(structure, kind, fname, protocol="balanced@phonondb"):
         """
@@ -200,12 +203,14 @@ def launch_second_third_order_calculations(
             if second_order_inputs is None:
                 second_order_inputs = get_inputs_second_order(value, kind, key)
             second_order_inputs["structure"] = value
+            second_order_inputs["metadata"]["label"] = f"{kind} {key}"
             calc_retrieved[key] = VaspTask(**second_order_inputs).retrieved
         # Third order calculations
         elif "POSCAR_" in key:
             if third_order_inputs is None:
                 third_order_inputs = get_inputs_third_order(value, kind, key)
             third_order_inputs["structure"] = value
+            third_order_inputs["metadata"]["label"] = f"{kind} {key}"
             calc_retrieved[key] = VaspTask(**third_order_inputs).retrieved
     return {"calc_retrieved": calc_retrieved}
 
